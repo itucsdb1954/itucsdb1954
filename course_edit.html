@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block title %}Edit Course{% endblock %}
+{% block content %}
+    <h1 class="title">Edit course</h1>
+
+    <form action="" method="post" name="course_edit">
+      <div class="field">
+        <label for="name" class="label">Name</label>
+        <div class="control">
+          <input type="text" name="name" class="input" required="required" value="{{ values['name'] }}"/>
+        </div>
+        {% if 'name' in values.errors %}
+        <p class="help has-background-warning">
+            {{ values.errors['name'] }}
+        </p>
+        {% endif %}
+      </div>
+
+      <div class="field">
+        <label for="department" class="label">Department</label>
+        <div class="control">
+          <input type="text" name="department" class="input" required="required" value="{{ values['department'] }}"/>
+        </div>
+        {% if 'department' in values.errors %}
+        <p class="help has-background-warning">
+            {{ values.errors['department'] }}
+        </p>
+        {% endif %}
+      </div>
+
+      <div class="field">
+        <label for="description" class="label">Description</label>
+        <div class="control">
+          <input type="text" name="description" class="input" required="required" value="{{ values['description'] }}"/>
+        </div>
+        {% if 'description' in values.errors %}
+        <p class="help has-background-warning">
+            {{ values.errors['description'] }}
+        </p>
+        {% endif %}
+      </div>
+
+      <div class="field">
+        <label for="lecturerName" class="label">Lecturer Name</label>
+        <div class="control">
+          <input type="text" name="lecturerName" class="input" required="required" value="{{ values['lecturerName'] }}"/>
+        </div>
+        {% if 'lecturerName' in values.errors %}
+        <p class="help has-background-warning">
+            {{ values.errors['lecturerName'] }}
+        </p>
+        {% endif %}
+      </div>
+
+      <div class="field">
+        <label for="VF_conditions" class="label">VF Condition</label>
+        <div class="control">
+          <input type="text" name="VF_conditions" class="input" required="required" value="{{ values['VF_conditions'] }}"/>
+        </div>
+        {% if 'VF_conditions' in values.errors %}
+        <p class="help has-background-warning">
+            {{ values.errors['VF_conditions'] }}
+        </p>
+        {% endif %}
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary is-small">Save</button>
+        </div>
+      </div>
+
+    </form>
+{% endblock %}
