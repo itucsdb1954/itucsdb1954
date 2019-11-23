@@ -1,2 +1,2 @@
-web: gunicorn server:app --preload --workers 1
+web: python server.py
 release: python dbinit.py
