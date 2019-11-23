@@ -13,6 +13,8 @@ class Database:
     def delete_course(self,course_key):
         if course_key in self.courses:
             del self.courses[course_key]
+            self._last_course_key=self._last_course_key-1
+
 
     def get_course(self,course_key):
         course = self.courses.get(course_key)
@@ -27,3 +29,7 @@ class Database:
             course_=Course(course.name,course.department,course.description,course.lecturerName,course.VF_conditions)
             courses.append((course_key,course_))
         return courses
+
+    def update_course(self,course_key,course):
+        self.courses[course_key]=course
+        return

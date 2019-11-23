@@ -1,24 +1,12 @@
-from flask import render_template,current_app,request,redirect,url_for
+from flask import render_template,current_app,request,redirect,url_for,flash,abort
+from flask_login import login_user ,logout_user,current_user
+from passlib.hash import pbkdf2_sha256 as hasher
 from datetime import datetime
 from database import Database
 from course import Course
 from forms import LoginForm
-from user import User
+from user import User,get_user
 
-def login_page():
-    form = LoginForm()
-    if form.validate_on_submit():
-        username = form.data["username"]
-        user = get_user(username)
-        if user is not None:
-            password = form.data["password"]
-            if hasher.verify(password, user.password):
-                login_user(user)
-                flash("You have logged in.")
-                next_page = request.args.get("next", url_for("home_page"))
-                return redirect(next_page)
-        flash("Invalid credentials.")
-    return render_template("login.html", form=form)
 
 
 def logout_page():
@@ -29,7 +17,19 @@ def logout_page():
 def home_page():
     today=datetime.today()
     day_name=today.strftime("%A")
-    return render_template("homepage.html",day=day_name)
+    form = LoginForm()
+    if form.validate_on_submit():
+        username = form.data["username"]
+        user = get_user(username)
+        if user is not None:
+            password = form.data["password"]
+            if hasher.verify(password, user.password):
+                login_user(user)
+                flash("You have logged in.")
+                next_page = request.args.get("next", url_for("courses_page"))
+                return redirect(next_page)
+        flash("Invalid credentials.")
+    return render_template("homepage.html",day=day_name,form=form)
 
 def courses_page():
     db = current_app.config["db"]
@@ -37,12 +37,10 @@ def courses_page():
         courses=db.get_courses()
         return render_template("coursespage.html", courses=sorted(courses))
     else:
-        if not current_user.is_admin:
-            abort(401)
         form_course_keys=request.form.getlist("course_keys")
         for form_course_key in form_course_keys:
             db.delete_course(int(form_course_key))
-        return redirect(url_for("courses_page"))
+            return redirect(url_for("courses_page"))
 
 def course_page(course_key):
     db = current_app.config["db"]
@@ -51,15 +49,14 @@ def course_page(course_key):
 
 
 def course_add_page():
-    if not current_user.is_admin:
-        abort(401)
+
     if request.method == "GET":
         values={"name":"","department":"","description":"","lecturerName":"","VF_conditions":""}
-        return render_template("course_edit.html",values=values)
+        return render_template("course_add.html",values=values)
     else:
         valid=validate_course_form(request.form)
         if not valid:
-            return render_template("course_edit.html",values=request.form)
+            return render_template("course_add.html",values=request.form)
         form_name = request.form["name"]
         form_department = request.form["department"]
         form_description = request.form["description"]
@@ -77,7 +74,7 @@ def course_edit_page(course_key):
         course =db.get_course(course_key)
         if course is None:
             abort(404)
-        values={"name":"","department":"","description":"","lecturerName":"","VF_conditions":""}
+        values={"name":course.name,"department":course.department,"description":course.description,"lecturerName":course.lecturerName,"VF_conditions":course.VF_conditions}
         return render_template("course_edit.html",values=values)
     else:
         valid=validate_course_form(request.form)
