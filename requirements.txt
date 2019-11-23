@@ -4,3 +4,4 @@ gunicorn>=19.9
 flask_login>=0.4
 Flask-WTF==0.12
 WTForms>=1.0.5
+passlib
