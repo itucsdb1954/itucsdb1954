@@ -1,3 +1,18 @@
+container {
+  width: 80%;
+  height: 200px;
+  margin: auto;
+  padding: 10px;
+}
+.one {
+  width: 30%;
+  height: 200px;
+  float: left;
+}
+.two {
+  margin-left: 15%;
+  height: 300px;
+}
 h1.title {
     color: #e9601a;
 }
