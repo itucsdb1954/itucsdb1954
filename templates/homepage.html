@@ -1,8 +1,59 @@
-{% extends "layout.html" %}
+{% extends "layout2.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
-    <h1 class="title">Welcome to the VForNOT</h1>
-    <h2>Hello Student !! </h2>
-    <h3>You can add courses and following your courses' VF condition.</h3>
-    <p>Have a nice {{ day }}!</p>
+    <section class="container">
+      <div class="one">
+        <h1 class="title">Welcome to the VForNOT</h1>
+        <h2>Hello Student !! </h2>
+        <h3>You can add courses and following your courses' VF condition.</h3>
+        <p>Have a nice {{ day }}!</p>
+      </div>
+      <div class="two">
+        <section class="hero">
+          <div class="hero-body">
+            <div class="container has-text-centered">
+              <div class="column is-4 is-offset-4">
+                <h3 class="title has-text-grey">Login</h3>
+                <div class="box">
+                  <form action="" method="post" name="login">
+                    {{ form.csrf_token }}
+
+                    <div class="field">
+                      <div class="control">
+                        {{ form.username(required=True, autofocus=True,
+                          class='input is-large',
+                          placeholder='your username') }}
+                        </div>
+                        {% for error in form.username.errors %}
+                        <p class="help has-background-warning">
+                          {{ error }}
+                        </p>
+                        {% endfor %}
+                      </div>
+
+                      <div class="field">
+                        <div class="control">
+                          {{ form.password(required=True, class='input is-large',
+                          placeholder='your password') }}
+                        </div>
+                        {% for error in form.password.errors %}
+                        <p class="help has-background-warning">
+                          {{ error }}
+                        </p>
+                        {% endfor %}
+                      </div>
+
+                      <button class="button is-block is-info is-large is-fullwidth">
+                        Login
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+    </section>
+
 {% endblock %}

@@ -9,11 +9,11 @@
         {% for course_key, course in courses %}
         <tr>
           <td>
-            {% if current_user.is_admin %}
+
             <label class="checkbox">
              <input type="checkbox" name="course_keys" value="{{ course_key }}"/>
             </label>
-            {% endif %}
+            
             <a href="{{ url_for('course_page', course_key=course_key) }}">
               {{ course.name }}
               {{ course.department }}
@@ -26,13 +26,13 @@
         {% endfor %}
       </table>
 
-      {% if current_user.is_admin %}
+
       <div class="field is-grouped">
         <div class="control">
           <button class="button is-danger is-small">Delete</button>
         </div>
       </div>
-      {% endif %}
+
     </form>
     {% endif %}
 
