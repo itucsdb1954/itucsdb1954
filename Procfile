@@ -1,2 +1,2 @@
-web: python server.py
+worker: python server.py
 release: python dbinit.py
