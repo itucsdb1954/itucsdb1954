@@ -6,7 +6,7 @@ import psycopg2 as dbapi2
 
 INIT_STATEMENTS = [
     """
-    CREATE TABLE attendances(
+    CREATE TABLE IF NOT EXISTS attendances(
     id INTEGER PRIMARY KEY ,
     upper_limit_percent INTEGER ,
     total_hour INTEGER ,
@@ -15,7 +15,7 @@ INIT_STATEMENTS = [
 );
 """,
 """
-CREATE TABLE homeworks(
+CREATE TABLE IF NOT EXISTS homeworks(
     id INTEGER PRIMARY KEY ,
     number_of_homework INTEGER ,
     homework_weight INTEGER ,
@@ -24,7 +24,7 @@ CREATE TABLE homeworks(
 );
 """,
 """
-CREATE TABLE midterms(
+CREATE TABLE IF NOT EXISTS midterms(
     id INTEGER PRIMARY KEY ,
     number_of_midterm INTEGER ,
     midterm_weight INTEGER ,
@@ -33,7 +33,7 @@ CREATE TABLE midterms(
 );
 """,
 """
-CREATE TABLE projects(
+CREATE TABLE IF NOT EXISTS projects(
     id INTEGER PRIMARY KEY ,
     number_of_project INTEGER ,
     project_weight INTEGER ,
@@ -42,7 +42,7 @@ CREATE TABLE projects(
 );
 """,
 """
-CREATE TABLE vf_conditions(
+CREATE TABLE IF NOT EXISTS vf_conditions(
     id INTEGER PRIMARY KEY ,
     attendance INTEGER REFERENCES attendances(id),
     midterm INTEGER REFERENCES midterms(id),
@@ -51,7 +51,7 @@ CREATE TABLE vf_conditions(
 );
 """,
 """
-CREATE TABLE courses(
+CREATE TABLE IF NOT EXISTS courses(
     id INTEGER PRIMARY KEY ,
     department VARCHAR(50) NOT NULL ,
     course_name VARCHAR(100) NOT NULL ,
@@ -61,7 +61,7 @@ CREATE TABLE courses(
 );
 """,
 """
-CREATE TABLE users(
+CREATE TABLE IF NOT EXISTS users(
     id SERIAL PRIMARY KEY ,
     username VARCHAR(50) NOT NULL ,
     full_name VARCHAR(100) NOT NULL ,
