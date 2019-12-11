@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_login import LoginManager
 import views
@@ -31,7 +32,8 @@ def create_app():
     lm.init_app(app)
     lm.login_view = "home_page"
 
-    db = Database()
+    url = os.getenv("DATABASE_URL")
+    db = Database(url)
     app.config["db"] = db
 
     return app
