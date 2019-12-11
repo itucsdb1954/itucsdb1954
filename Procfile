@@ -1,2 +1,2 @@
-web: python3 server.py
+web: gunicorn server:app
 release: python dbinit.py
