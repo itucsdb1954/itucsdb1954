@@ -21,18 +21,21 @@ def home_page():
     today=datetime.today()
     day_name=today.strftime("%A")
     form = LoginForm()
-    if form.validate_on_submit():
-        username = form.data["username"]
-        user = get_user(username)
-        if user is not None:
-            password = form.data["password"]
-            if hasher.verify(password, user.password):
-                login_user(user)
-                flash("You have logged in.")
-                next_page = request.args.get("next", url_for("guide_page"))
-                return redirect(next_page)
-        flash("Invalid credentials.")
-    return render_template("homepage.html",day=day_name,form=form)
+    if request.method=="GET":
+        return render_template("homepage.html",day=day_name,form=form)
+    else:
+        if form.validate_on_submit():
+            username = form.data["username"]
+            user = get_user(username)
+            if user is not None:
+                password = form.data["password"]
+                if hasher.verify(password, user.password):
+                    login_user(user)
+                    flash("You have logged in.")
+                    next_page = request.args.get("next", url_for("guide_page"))
+                    return redirect(next_page)
+            flash("Invalid credentials.")
+        return render_template("homepage.html",day=day_name,form=form)
 
 def courses_page():
     db = current_app.config["db"]
