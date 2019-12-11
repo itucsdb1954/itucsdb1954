@@ -6,7 +6,7 @@ import psycopg2 as dbapi2
 
 INIT_STATEMENTS = [
      """
-    CREATE TABLE attendances(
+    CREATE TABLE IF NOT EXISTS attendances(
     id INTEGER PRIMARY KEY ,
     upper_limit_percent INTEGER ,
     total_hour INTEGER ,
@@ -28,7 +28,7 @@ INIT_STATEMENTS = [
 );
 """,
 """
-CREATE TABLE homeworks(
+CREATE TABLE IF NOT EXISTS homeworks(
     id INTEGER PRIMARY KEY ,
     number_of_homework INTEGER ,
     homework_weight INTEGER ,
@@ -40,7 +40,7 @@ CREATE TABLE homeworks(
 );
 """,
 """
-CREATE TABLE midterms(
+CREATE TABLE IF NOT EXISTS midterms(
     id INTEGER PRIMARY KEY ,
     number_of_midterm INTEGER ,
     midterm_weight INTEGER ,
@@ -50,7 +50,7 @@ CREATE TABLE midterms(
 );
 """,
 """
-CREATE TABLE projects(
+CREATE TABLE IF NOT EXISTS projects(
     id INTEGER PRIMARY KEY ,
     number_of_project INTEGER ,
     project_weight INTEGER ,
@@ -60,7 +60,7 @@ CREATE TABLE projects(
 );
 """,
 """
-CREATE TABLE vf_conditions(
+CREATE TABLE IF NOT EXISTS vf_conditions(
     id INTEGER PRIMARY KEY ,
     attendance INTEGER REFERENCES attendances(id),
     midterm INTEGER REFERENCES midterms(id),
@@ -69,7 +69,7 @@ CREATE TABLE vf_conditions(
 );
 """,
 """
-CREATE TABLE courses(
+CREATE TABLE IF NOT EXISTS courses(
     id INTEGER PRIMARY KEY ,
     department VARCHAR(50) NOT NULL ,
     course_name VARCHAR(100) NOT NULL ,
@@ -79,7 +79,7 @@ CREATE TABLE courses(
 );
 """,
 """
-CREATE TABLE users(
+CREATE TABLE IF NOT EXISTS users(
     id SERIAL PRIMARY KEY ,
     username VARCHAR(50) NOT NULL ,
     full_name VARCHAR(100) NOT NULL ,
@@ -93,7 +93,6 @@ CREATE TABLE users(
 
 ]
 
-url=postgres://slrgxukjxrhpev:fcac63c2ad10f2cee6db0982cdd0d165110373a0779bb928d8155f00ee23db22@ec2-54-228-243-29.eu-west-1.compute.amazonaws.com:5432/d5kmemgafdequ6
 
 def initialize(url):
     with dbapi2.connect(url) as connection:
