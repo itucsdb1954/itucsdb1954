@@ -13,9 +13,9 @@
           <div class="hero-body">
             <div class="container has-text-centered">
               <div class="column is-4 is-offset-4">
-                <h3 class="title has-text-grey">Login</h3>
                 <div class="box">
-                  <form action="" method="post" name="login">
+                  <h3 class="title has-text-grey">Login</h3>
+                  <form class="login-form" action="" method="post" name="login">
                     {{ form.csrf_token }}
 
                     <div class="field">
@@ -46,14 +46,36 @@
                       <button class="button is-block is-info is-large is-fullwidth">
                         Login
                       </button>
+
+
                     </form>
+
+                    </div>
+                    <div class="box">
+                      <h3 class="title has-text-grey">Register</h3>
+                        <form class="register-form" action="" method="post" name="register">
+                          <div class="field">
+                          <input type="text" placeholder="Name:">
+                          </div>
+
+                          <div class="field">
+                          <input type="password" placeholder="Password:">
+                          </div>
+
+                          <div class="field">
+                          <input type="email" placeholder="Email:">
+                          </div>
+
+                          <button class="button is-block is-info is-large is-fullwidth">
+                            Create
+                          </button>
+                        </form>
                   </div>
                 </div>
               </div>
             </div>
           </section>
         </div>
-
     </section>
 
 {% endblock %}

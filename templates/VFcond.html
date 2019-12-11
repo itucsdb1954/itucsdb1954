@@ -1,0 +1,208 @@
+{% extends "layout.html" %}
+{% block title %}VF Conditions{% endblock %}
+{% block content %}
+      <h1 class="title">VF Condition</h1>
+
+      <table class="table">
+        <tr>
+          <th>        </th>
+          <th>Number</th>
+          <th>Each of Weight</th>
+          <th>Is it important</th>
+
+        </tr>
+        {%if midterm.is_important %}
+        <tr>
+          <th>Midterm:</th>
+          <td>{{ midterm.number_of_midterm}}</td>
+          <td>{{ midterm.midterm_weight}}</td>
+          <td>{{midterm.is_important}}</td>
+        </tr>
+        {%endif%}
+        {%if homework.is_important %}
+        <tr>
+          <th>Homework:</th>
+          <td>{{ homework.number_of_homework }}</td>
+          <td>{{ homework.homework_weight}}</td>
+          <td>{{ homework.is_important}}</td>
+        </tr>
+        {%endif%}
+        {%if project.is_important %}
+        <tr>
+          <th>Project:</th>
+          <td>{{ project.number_of_project }}</td>
+          <td>{{ project.project_weight}}</td>
+          <td>{{ project.is_important}}</td>
+        </tr>
+        {%endif%}
+
+        <tr>
+          <th>Attendance:</th>
+          <td>{{ attendance.upper_limit_percent }}</td>
+          <td>X</td>
+          <td>{{ attendance.is_important}}</td>
+        </tr>
+      </table>
+      <br>
+      <br>
+      {%if course.VF_conditions == "YES" %}
+      <form action="" method="post" name="attendance_form">
+
+        <div class="attendance">
+          <h1>Attendance Table</h1>
+          <table>
+            <tr>
+              <th>Week:</th>
+              <th>Negative/Positive</th>
+            </tr>
+            <tr>
+              <td>Week1</td>
+              <td>
+                <input type="range" name="week1" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week2</td>
+              <td>
+                <input type="range" name="week2" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week3</td>
+              <td>
+                <input type="range" name="week3" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week4</td>
+              <td>
+                <input type="range" name="week4" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week5</td>
+              <td>
+                <input type="range" name="week5" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week6</td>
+              <td>
+                <input type="range" name="week6" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week7</td>
+              <td>
+                <input type="range" name="week7" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week8</td>
+              <td>
+                <input type="range" name="week8" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week9</td>
+              <td>
+                <input type="range" name="week9" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week10</td>
+              <td>
+                <input type="range" name="week10" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week11</td>
+              <td>
+                <input type="range" name="week11" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week12</td>
+              <td>
+                <input type="range" name="week12" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week13</td>
+              <td>
+                <input type="range" name="week13" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td>Week14</td>
+              <td>
+                <input type="range" name="week14" min="0" max="1">
+                <br>
+              </td>
+            </tr>
+          </table>
+          <div class="field is-grouped">
+            <div class="control">
+              <input type="submit" name="Save" value="SAVE">
+            </div>
+          </div>
+        </div>
+
+          <br>
+          <br>
+          <div class="Midterm">
+            <h1>Points Table</h1>
+            <table>
+              <tr>
+                <th>RESULT: </th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+              </tr>
+              <tr>
+                <td>Midterm:</td>
+                <td><input type="text" name="Midterm1" value="{{midterm.midterm_score[0]}}"></td>
+                <td><input type="text" name="Midterm2" value="{{midterm.midterm_score[1]}}"></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Homework:</td>
+                <td><input type="text" name="Homework1" value="{{homework.homework_score[0]}}"></td>
+                <td><input type="text" name="Homework2" value="{{homework.homework_score[1]}}"></td>
+                <td><input type="text" name="Homework3" value="{{homework.homework_score[2]}}"></td>
+                <td><input type="text" name="Homework4" value="{{homework.homework_score[3]}}"></td>
+              </tr>
+              <tr>
+                <td>Project:</td>
+                <td><input type="text" name="Project1" value="{{project.project_score[0]}}" ></td>
+                <td><input type="text" name="Project2" value="{{project.project_score[1]}}" ></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+            </table>
+            <div class="field is-grouped">
+              <div class="control">
+                <input type="submit" name="Save" value="SAVE">
+              </div>
+            </div>
+          </div>
+        </form>
+
+      {%endif%}
+{% endblock %}

@@ -19,7 +19,12 @@
       <div class="field">
         <label for="department" class="label">Department</label>
         <div class="control">
-          <input type="text" name="department" class="input" required="required" value="{{ values['department'] }}"/>
+          <select name="department" required="required">
+              <option value="Computer Engineering">Computer Engineering</option>
+              <option value="Electronic Engineering">Electronic Engineering</option>
+              <option value="Electric Engineering">Electric Engineering</option>
+              <option value="Control Engineering">Control Engineering</option>
+          </select>
         </div>
         {% if 'department' in values.errors %}
         <p class="help has-background-warning">
@@ -31,7 +36,7 @@
       <div class="field">
         <label for="description" class="label">Description</label>
         <div class="control">
-          <input type="text" name="description" class="input" required="required" value="{{ values['description'] }}"/>
+          <textarea name="description" rows="5" cols="20" placeholder="{{ values['description'] }}"></textarea>
         </div>
         {% if 'description' in values.errors %}
         <p class="help has-background-warning">
@@ -55,7 +60,8 @@
       <div class="field">
         <label for="VF_conditions" class="label">VF Condition</label>
         <div class="control">
-          <input type="text" name="VF_conditions" class="input" required="required" value="{{ values['VF_conditions'] }}"/>
+          <input type="radio" name="VF_conditions"  required="required" value="YES">YES <br>
+          <input type="radio" name="VF_conditions"  required="required" value="NO">NO<br>
         </div>
         {% if 'VF_conditions' in values.errors %}
         <p class="help has-background-warning">

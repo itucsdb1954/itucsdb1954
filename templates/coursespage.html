@@ -6,22 +6,51 @@
     {% if courses %}
     <form action="" method="post" name="course_list">
       <table class="table">
+        <tr>
+          <th>        </th>
+          <th>Course Name</th>
+          <th>Department</th>
+          <th>Description</th>
+          <th>Lecturer Name</th>
+          <th>VF Condition</th>
+          <th>Follow VF</th>
+        </tr>
         {% for course_key, course in courses %}
+
         <tr>
           <td>
 
             <label class="checkbox">
              <input type="checkbox" name="course_keys" value="{{ course_key }}"/>
             </label>
-            
-            <a href="{{ url_for('course_page', course_key=course_key) }}">
-              {{ course.name }}
-              {{ course.department }}
-              {{ course.description }}
-              {{ course.lecturerName }}
-              {{ course.VF_conditions }}
-            </a>
-          </td>
+
+              <td>
+                {{ course.name }}
+              </td>
+              <td>
+                {{ course.department }}
+              </td>
+              <td>
+                {{ course.description }}
+              </td>
+              <td>
+                {{ course.lecturerName }}
+              </td>
+              <td>
+                {{ course.VF_conditions }}
+              </td>
+              <td>
+                {% if course.VF_conditions=="YES"%}
+                <div class="control">
+                  <button class="button is-primary is-small">
+                    <a href="{{ url_for('course_page', course_key=course_key) }}">
+                    SEE
+                    </a>
+                  </button>
+                </div>
+                {%endif%}
+              </td>
+
         </tr>
         {% endfor %}
       </table>

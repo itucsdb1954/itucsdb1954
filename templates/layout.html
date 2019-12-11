@@ -4,44 +4,136 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>VForNOT - {% block title %}{% endblock %}</title>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"/>
-    <link rel="stylesheet" href="{{url_for('static',filename='homepage.css')}}"/>
+
   </head>
   <body>
 
     <header>
-        <nav class="navbar" aria-label="main navigation">
-          <div class="navbar-brand">
-            <span class="navbar-item">
-              <a class="button is-link" href="{{ url_for('home_page') }}">Home</a>
-            </span>
-            <span class="navbar-item">
-              <a class="button is-link" href="{{ url_for('courses_page') }}">Courses List</a>
-            </span>
-            <span class="navbar-item">
-              <a class="button is-link" href="{{ url_for('course_add_page') }}">Add Course</a>
-            </span>
-            <span class="navbar-item">
-              <a class="button is-link" href="{{ url_for('course_add_page') }}">{{ current_user.username }}</a>
-              <a class="button is-link" href="{{ url_for('logout_page') }}">Log out</a>
-            </span>
-          </div>
-        </nav>
-      </header>
+      <nav class="navbar" aria-label="main navigation">
+        <div class="navbar-brand">
+          <span class="navbar-item">
+            <a class="button is-link" href="{{ url_for('guide_page') }}">Guide</a> <!--BURAYA Tanıtımın linkini ekle -->
+          </span>
+          <span class="navbar-item">
+            <a class="button is-link" href="{{ url_for('courses_page') }}">Courses List</a>
+          </span>
+          <span class="navbar-item">
+            <a class="button is-link" href="{{ url_for('course_add_page') }}">Add Course</a>
+          </span>
+          <span class="navbar-item">
 
-      <main>
+          </span>
+          <span class="navbar-item">
 
-        {% for message in get_flashed_messages() %}
-        <div class="notification is-info">{{ message }}</div>
-        {% endfor %}
+          </span>
+          <span class="navbar-item">
 
-        <section class="section">
-          <div class="content">
-            {% block content %}{% endblock %}
-          </div>
-        </section>
-      </main>
+          </span>
+          <span class="navbar-item">
+
+          </span>
+          <span class="navbar-item">
+
+          </span>
+          <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+            </span>
+            <span class="navbar-item">
+
+              </span>
+              <span class="navbar-item">
+
+                </span>
+
+          <span class="navbar-item">
+            <a class="button is-link" href="{{ url_for('user_page') }}">{{ current_user.username }}</a>
+            <a class="button is-link" href="{{ url_for('logout_page') }}">Log out</a>
+          </span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+
+      {% for message in get_flashed_messages() %}
+      <div class="notification is-info">{{ message }}</div>
+      {% endfor %}
+
+      <section class="section">
+        <div class="content">
+          {% block content %}{% endblock %}
+        </div>
+      </section>
+    </main>
 
 
     <footer class="footer">
@@ -51,4 +143,7 @@
     </footer>
 
   </body>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"/>
+    <link rel="stylesheet" href="{{url_for('static',filename='homepage.css')}}"/>
 </html>

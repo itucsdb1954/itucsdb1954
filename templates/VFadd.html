@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+{% block title %}Add VF Conditions{% endblock %}
+{% block content %}
+
+    <table class="table">
+      <h1 class="title">You can adding VF condition. </h1>
+      <tr>
+        <th>Name:</th>
+        <td>{{ course.name }}</td>
+      </tr>
+      <tr>
+        <th>Department:</th>
+        <td>{{ course.department }}</td>
+      </tr>
+      <tr>
+        <th>Description:</th>
+        <td>{{ course.description }}</td>
+      </tr>
+      <tr>
+        <th>Lecturer's Name:</th>
+        <td>{{ course.lecturerName }}</td>
+      </tr>
+      <tr>
+        <th>VF Condition:</th>
+        <td>{{ course.VF_conditions }}</td>
+      </tr>
+    </table>
+
+
+    <form action="" method="post" name="VF_adding">
+      <div class="field">
+        <label for="Midterm" class="label">Select your Midterm number and weighted.</label>
+        <div class="control">
+          <p>Midterm Number:</p>
+          <select name="Number_of_Midterm" required="required">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+          </select>
+          <p>Each of Midterm Weight:</p>
+          <select name="weighted_of_Midterm" required="required">
+              <option value="0" >0</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+              <option value="35">35</option>
+              <option value="40">40</option>
+              <option value="45">45</option>
+              <option value="50">50</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="field">
+        <label for="Homework" class="label">Select your Homework number and weighted.</label>
+        <div class="control">
+          <p>Homework Number:</p>
+          <select name="Number_of_Homework" required="required">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+          </select>
+          <p>Each of Homework Weight:</p>
+          <select name="weighted_of_Homework" required="required">
+              <option value="0" >0</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+              <option value="35">35</option>
+              <option value="40">40</option>
+              <option value="45">45</option>
+              <option value="50">50</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="Project" class="label">Select your Project number and weighted.</label>
+        <div class="control">
+          <p>Project Number:</p>
+          <select name="Number_of_Project" required="required">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+          </select>
+          <p>Each of Project Weight:</p>
+          <select name="weighted_of_Project" required="required">
+              <option value="0" >0</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+              <option value="35">35</option>
+              <option value="40">40</option>
+              <option value="45">45</option>
+              <option value="50">50</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="attendance" class="label">Select your attendance is it important or not.If it is important choice weight.</label>
+        <div class="control">
+          <p>Is it important for VF ?</p>
+          <input type="radio" name="attendance"  required="required" value="1">YES <br>
+          <input type="radio" name="attendance"  required="required" value="0">NO<br>
+          <p>Least attendance condition:</p>
+          <select name="upper_limit_percent" required="required">
+              <option value="0" >0</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+              <option value="60">60</option>
+              <option value="70">70</option>
+              <option value="80">80</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary is-small">Save</button>
+        </div>
+      </div>
+
+    </form>
+{% endblock %}
