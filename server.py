@@ -32,7 +32,7 @@ def create_app():
     lm.init_app(app)
     lm.login_view = "home_page"
 
-    url = "postgres://wdawgvmzrbzjzh:11bad7584f2295bf829c39bb69bf28bc883e59276b54d5d5cf5cfb41d588f89e@ec2-54-217-243-19.eu-west-1.compute.amazonaws.com:5432/dflub88fsan2mj"
+    url = "postgres://svnlnojvdyohfa:8578039a419f747b5f80ec9826f29c65b0080f0147b9b700bbbf3de60b182162@ec2-54-247-171-30.eu-west-1.compute.amazonaws.com:5432/dfmqhs9q8de7ep"
     db = Database(url)
     app.config["db"] = db
 
