@@ -72,10 +72,10 @@ CREATE TABLE IF NOT EXISTS vf_conditions(
 CREATE TABLE IF NOT EXISTS courses(
     id SERIAL ,
     department VARCHAR(50) NOT NULL ,
-    course_name PRIMARY KEY VARCHAR(100) NOT NULL ,
+    course_name VARCHAR(100) PRIMARY KEY ,
     course_description VARCHAR(100) ,
     lecturer_name VARCHAR(100) ,
-    VF_condition VARCHAR(10)
+    VF_condition INTEGER
 );
 """,
 """
