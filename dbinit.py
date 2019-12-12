@@ -70,9 +70,9 @@ CREATE TABLE IF NOT EXISTS vf_conditions(
 """,
 """
 CREATE TABLE IF NOT EXISTS courses(
-    id SERIAL PRIMARY KEY ,
+    id SERIAL ,
     department VARCHAR(50) NOT NULL ,
-    course_name VARCHAR(100) NOT NULL ,
+    course_name PRIMARY KEY VARCHAR(100) NOT NULL ,
     course_description VARCHAR(100) ,
     lecturer_name VARCHAR(100) ,
     VF_condition VARCHAR(10)
