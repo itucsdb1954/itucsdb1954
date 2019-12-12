@@ -38,7 +38,7 @@ def home_page():
         return render_template("homepage.html",day=day_name,form=form)
 
 def courses_page():
-    db = current_app.config["db"]
+    db = Database("postgres://wdawgvmzrbzjzh:11bad7584f2295bf829c39bb69bf28bc883e59276b54d5d5cf5cfb41d588f89e@ec2-54-217-243-19.eu-west-1.compute.amazonaws.com:5432/dflub88fsan2mj")
     if request.method =="GET":
         courses=db.get_courses()
         return render_template("coursespage.html", courses=sorted(courses))
