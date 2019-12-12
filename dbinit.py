@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS courses(
     course_name VARCHAR(100) NOT NULL ,
     course_description VARCHAR(100) ,
     lecturer_name VARCHAR(100) ,
-    vf_condition INTEGER REFERENCES vf_conditions(id)
+    VF_condition VARCHAR(10)
 );
 """,
 """
@@ -88,9 +88,6 @@ CREATE TABLE IF NOT EXISTS users(
     course INTEGER REFERENCES courses(id)
 );
 """
-
-
-
 ]
 
 
