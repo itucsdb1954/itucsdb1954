@@ -46,7 +46,11 @@ def courses_page():
         form_course_keys=request.form.getlist("course_keys")
         for form_course_key in form_course_keys:
             db.delete_course(int(form_course_key))
-            return redirect(url_for("courses_page"))
+            db.delete_midterm(int(form_course_key))
+            db.delete_project(int(form_course_key))
+            db.delete_homework(int(form_course_key))
+            db.delete_attendance(int(form_course_key))
+        return redirect(url_for("courses_page"))
 
 def course_page(course_key):
     db = current_app.config["db"]
@@ -98,7 +102,36 @@ def course_edit_page(course_key):
         return redirect(url_for("course_page",course_key=course_key))
 
 def user_page():
-    return render_template("userpage.html")
+    coursesVF=[]
+    db = current_app.config["db"]
+    courses=db.get_courses()
+    for course_key,course in courses:
+        check=True
+        result=0
+        midterm=db.get_midterm(course_key)
+        if midterm.is_important==True:
+            for i in range(midterm.number_of_midterm):
+                    result=result+midterm.midterm_weight*midterm.midterm_score[i]/100
+            if(result<30):
+                check=False
+        result=0
+        homework=db.get_homework(course_key)
+        if homework.is_important==True:
+            for i in range(homework.number_of_homework):
+                    result=result+homework.homework_weight*homework.homework_score[i]/100
+            if(result<30):
+                check=False
+        result=0
+        project=db.get_project(course_key)
+        if project.is_important==True:
+            for i in range(project.number_of_project):
+                    result=result+project.project_weight*project.project_score[i]/100
+            if(result<30):
+                check=False
+        if(check==False):
+            coursesVF.append((course_key, course) )
+
+    return render_template("userpage.html",courses=coursesVF)
 
 def guide_page():
     return render_template("guide.html")
@@ -138,7 +171,7 @@ def conditionAdding_page(course_key):
 
         attendance = request.form["attendance"]
         upper_limit_percent = request.form["upper_limit_percent"]
-        if attendance==1:
+        if attendance=="1":
             is_important=True
         else:
             is_important=False
@@ -162,32 +195,44 @@ def conditions_page(course_key):
     if request.method == "GET":
         return render_template("VFcond.html",midterm=midterm,homework=homework,project=project,attendance=attendance,course=course)
     else:
-        midterm.midterm_score[0] = request.form["Midterm1"]
-        midterm.midterm_score[1] = request.form["Midterm2"]
+        if midterm.is_important:
+            midterm.midterm_score[0] = request.form["Midterm1"]
+            if midterm.number_of_midterm>1:
+                midterm.midterm_score[1] = request.form["Midterm2"]
+            db.update_midterm(course_key,midterm)
 
-        homework.homework_score[0] = request.form["Homework1"]
-        homework.homework_score[1] = request.form["Homework2"]
-        homework.homework_score[2] = request.form["Homework3"]
-        homework.homework_score[3] = request.form["Homework4"]
+        if homework.is_important:
+            homework.homework_score[0] = request.form["Homework1"]
+            if homework.number_of_homework>1:
+                homework.homework_score[1] = request.form["Homework2"]
+                if homework.number_of_homework>2:
+                    homework.homework_score[2] = request.form["Homework3"]
+                    if homework.number_of_homework>3:
+                        homework.homework_score[3] = request.form["Homework4"]
+            db.update_homework(course_key,homework)
 
-        project.project_score[0]= request.form["Project1"]
-        project.project_score[1]= request.form["Project2"]
+        if project.is_important:
+            project.project_score[0]= request.form["Project1"]
+            if project.number_of_project>1:
+                project.project_score[1]= request.form["Project2"]
+            db.update_project(course_key,project)
 
-        attendance.attendance[0]=request.form.get("week1")
-        print(attendance.attendance[0])
-        attendance.attendance[1]=request.form.get("week2")
-        attendance.attendance[2]=request.form.get("week3")
-        attendance.attendance[3]=request.form.get("week4")
-        attendance.attendance[4]=request.form.get("week5")
-        attendance.attendance[5]=request.form.get("week6")
-        attendance.attendance[6]=request.form.get("week7")
-        attendance.attendance[7]=request.form.get("week8")
-        attendance.attendance[8]=request.form.get("week9")
-        attendance.attendance[9]=request.form.get("week10")
-        attendance.attendance[10]=request.form.get("week11")
-        attendance.attendance[11]=request.form.get("week12")
-        attendance.attendance[12]=request.form.get("week13")
-        attendance.attendance[13]=request.form.get("week14")
+        if attendance.is_important:
+            attendance.attendance[0]=int(request.form["week1"])
+            attendance.attendance[1]=request.form["week2"]
+            attendance.attendance[2]=request.form["week3"]
+            attendance.attendance[3]=request.form["week4"]
+            attendance.attendance[4]=request.form["week5"]
+            attendance.attendance[5]=request.form["week6"]
+            attendance.attendance[6]=request.form["week7"]
+            attendance.attendance[7]=request.form["week8"]
+            attendance.attendance[8]=request.form["week9"]
+            attendance.attendance[9]=request.form["week10"]
+            attendance.attendance[10]=request.form["week11"]
+            attendance.attendance[11]=request.form["week12"]
+            attendance.attendance[12]=request.form["week13"]
+            attendance.attendance[13]=request.form["week14"]
+            db.update_attendances(course_key,attendance)
 
         return render_template("VFcond.html",midterm=midterm,homework=homework,project=project,attendance=attendance,course=course)
 

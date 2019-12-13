@@ -51,7 +51,7 @@ class Database:
     def update_course(self,course_key,Course):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
-            query = "UPDATE course SET department = %s, name = %s, lecturer_name = %s, course_description = %s, VF_condition = %s WHERE (ID = %s)"
+            query = "UPDATE courses SET department = %s, course_name = %s, lecturer_name = %s, course_description = %s, VF_condition = %s WHERE (ID = %s)"
             cursor.execute(query, (Course.department,Course.name,Course.lecturerName,Course.description,Course.VF_conditions, course_key))
             connection.commit()
         return course_key
@@ -151,7 +151,7 @@ class Database:
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
             query = "UPDATE homeworks SET number_of_homework = %s, homework_weight = %s, homework_score1 = %s, homework_score2 = %s, homework_score3 = %s, homework_score4 = %s, is_important = %s WHERE (ID = %s)"
-            cursor.execute(query, (homework.number_of_homework,homework.homework_weight,homework.homework_score[0],homework.homework_score[1],homework.homework_score[2],homework.homework_score[3],homework.is_important, homework_key_key))
+            cursor.execute(query, (homework.number_of_homework,homework.homework_weight,homework.homework_score[0],homework.homework_score[1],homework.homework_score[2],homework.homework_score[3],homework.is_important, homework_key))
             connection.commit()
         return homework_key
 #project
@@ -179,8 +179,8 @@ class Database:
             cursor.execute(query, (project_key,))
             number_of_project,project_weight,project_score1,project_score2,is_important = cursor.fetchone()
             project_ = Project(number_of_project,project_weight,is_important,project_key)
-            project_.score[0]=project_score1
-            project_.score[1]=project_score2
+            project_.project_score[0]=project_score1
+            project_.project_score[1]=project_score2
         return project_
     """def get_projects(self):
         projects = []
@@ -206,7 +206,7 @@ class Database:
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
             query = "INSERT INTO attendances(upper_limit_percent,attendance_hour1,attendance_hour2,attendance_hour3,attendance_hour4,attendance_hour5,attendance_hour6,attendance_hour7,attendance_hour8,attendance_hour9,attendance_hour10,attendance_hour11,attendance_hour12,attendance_hour13,attendance_hour14,is_important) VALUES (%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s)"
-            cursor.execute(query, (Attendance.upper_limit_percent, Attendance.attendance[0], Attendance.attendance[1], Attendance.project_score[1], Attendance.project_score[2], Attendance.project_score[3], Attendance.project_score[4], Attendance.project_score[5], Attendance.project_score[6], Attendance.project_score[7], Attendance.project_score[8], Attendance.project_score[9], Attendance.project_score[10], Attendance.project_score[11], Attendance.project_score[12], Attendance.project_score[13],Attendance.is_important))
+            cursor.execute(query, (Attendance.upper_limit_percent, Attendance.attendance[0], Attendance.attendance[1], Attendance.attendance[2], Attendance.attendance[3], Attendance.attendance[4], Attendance.attendance[5], Attendance.attendance[6], Attendance.attendance[7], Attendance.attendance[8], Attendance.attendance[9], Attendance.attendance[10], Attendance.attendance[11], Attendance.attendance[12], Attendance.attendance[13],Attendance.is_important))
             connection.commit()
             attendance_key = cursor.lastrowid
         return attendance_key
