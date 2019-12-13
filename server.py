@@ -27,12 +27,12 @@ def create_app():
     app.add_url_rule("/user", view_func=views.user_page)
     app.add_url_rule("/courses/<int:course_key>/VF_conditions_add",view_func=views.conditionAdding_page,methods=["GET", "POST"])
     app.add_url_rule("/courses/<int:course_key>/VF_conditions",view_func=views.conditions_page,methods=["GET", "POST"])
-    
+
 
     lm.init_app(app)
     lm.login_view = "home_page"
 
-    url = "postgres://svnlnojvdyohfa:8578039a419f747b5f80ec9826f29c65b0080f0147b9b700bbbf3de60b182162@ec2-54-247-171-30.eu-west-1.compute.amazonaws.com:5432/dfmqhs9q8de7ep"
+    url="postgres://eqxokbcjiseyei:3bc64a91ec58aab73ba937f8652296acf5ab9b2671aba9deb9420dfbe25e5cf6@ec2-46-137-188-105.eu-west-1.compute.amazonaws.com:5432/d1f2968dk53lod"
     db = Database(url)
     app.config["db"] = db
 

@@ -44,7 +44,8 @@ class Database:
             query = "SELECT id,department,course_name,lecturer_name,course_description,VF_condition FROM courses ORDER BY ID"
             cursor.execute(query)
             for course_key, department,name, lecturerName, description, VF_conditions in cursor:
-                courses.append(course_key, Course(name, department,description,lecturerName,VF_conditions))
+                course=Course(name, department,description,lecturerName,VF_conditions)
+                courses.append((course_key, course) )
         return courses
 
     def update_course(self,course_key,Course):

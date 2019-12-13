@@ -38,10 +38,10 @@ def home_page():
         return render_template("homepage.html",day=day_name,form=form)
 
 def courses_page():
-    db = Database("postgres://wdawgvmzrbzjzh:11bad7584f2295bf829c39bb69bf28bc883e59276b54d5d5cf5cfb41d588f89e@ec2-54-217-243-19.eu-west-1.compute.amazonaws.com:5432/dflub88fsan2mj")
+    db = Database("postgres://eqxokbcjiseyei:3bc64a91ec58aab73ba937f8652296acf5ab9b2671aba9deb9420dfbe25e5cf6@ec2-46-137-188-105.eu-west-1.compute.amazonaws.com:5432/d1f2968dk53lod")
     if request.method =="GET":
         courses=db.get_courses()
-        return render_template("coursespage.html", courses=sorted(courses))
+        return render_template("coursespage.html", courses=courses)
     else:
         form_course_keys=request.form.getlist("course_keys")
         for form_course_key in form_course_keys:
@@ -72,6 +72,7 @@ def course_add_page():
         db = current_app.config["db"]
         course_key = db.add_course(course)
         return redirect(url_for("courses_page"))
+
 
 
 def course_edit_page(course_key):
@@ -137,17 +138,17 @@ def conditionAdding_page(course_key):
 
         attendance = request.form["attendance"]
         upper_limit_percent = request.form["upper_limit_percent"]
-        if attendance=="1":
+        if attendance==1:
             is_important=True
         else:
             is_important=False
 
         attendance=Attendance(upper_limit_percent,is_important,course_key)
         db = current_app.config["db"]
-        db.add_Midterm(midterm)
-        db.add_Homework(homework)
-        db.add_Project(project)
-        db.add_Attendance(attendance)
+        db.add_midterm(midterm)
+        db.add_homework(homework)
+        db.add_project(project)
+        db.add_attendance(attendance)
         return redirect(url_for("conditions_page",course_key=course_key))
 
 def conditions_page(course_key):

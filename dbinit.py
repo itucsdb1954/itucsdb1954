@@ -7,9 +7,8 @@ import psycopg2 as dbapi2
 INIT_STATEMENTS = [
      """
     CREATE TABLE IF NOT EXISTS attendances(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     upper_limit_percent INTEGER ,
-    total_hour INTEGER ,
     attendance_hour1 INTEGER DEFAULT(0),
     attendance_hour2 INTEGER DEFAULT(0),
     attendance_hour3 INTEGER DEFAULT(0),
@@ -29,7 +28,7 @@ INIT_STATEMENTS = [
 """,
 """
 CREATE TABLE IF NOT EXISTS homeworks(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     number_of_homework INTEGER ,
     homework_weight INTEGER ,
     homework_score1 INTEGER DEFAULT(0),
@@ -41,7 +40,7 @@ CREATE TABLE IF NOT EXISTS homeworks(
 """,
 """
 CREATE TABLE IF NOT EXISTS midterms(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     number_of_midterm INTEGER ,
     midterm_weight INTEGER ,
     midterm_score1 INTEGER DEFAULT(0),
@@ -51,7 +50,7 @@ CREATE TABLE IF NOT EXISTS midterms(
 """,
 """
 CREATE TABLE IF NOT EXISTS projects(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     number_of_project INTEGER ,
     project_weight INTEGER ,
     project_score1 INTEGER DEFAULT(0),
@@ -61,7 +60,7 @@ CREATE TABLE IF NOT EXISTS projects(
 """,
 """
 CREATE TABLE IF NOT EXISTS vf_conditions(
-    id INTEGER PRIMARY KEY ,
+    id SERIAL PRIMARY KEY ,
     attendance INTEGER REFERENCES attendances(id),
     midterm INTEGER REFERENCES midterms(id),
     homework INTEGER REFERENCES homeworks(id),
