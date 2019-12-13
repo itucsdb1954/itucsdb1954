@@ -1,17 +1,15 @@
-Welcome to itucsdbNN's documentation!
+Welcome to itucsdb1954's documentation!
 =====================================
 
-:Team: Team Name
+:Team: VForNot
 
 :Members:
 
-   * Member 1
-   * Member 2
-   * Member 3
-   * Member 4
-   * Member 5
+   * Ahmet Özdemir
+   * Alper Meriç
+  
 
-**project description goes here (a few paragraphs)**
+**VForNot is a personal platform which allows university students to check their status on courses. Users can easily check if they have a vf or not .Also students can follow their attendance day by day.**
 
 Contents:
 
