@@ -27,7 +27,7 @@ def create_app():
     app.add_url_rule("/user", view_func=views.user_page)
     app.add_url_rule("/courses/<int:course_key>/VF_conditions_add",view_func=views.conditionAdding_page,methods=["GET", "POST"])
     app.add_url_rule("/courses/<int:course_key>/VF_conditions",view_func=views.conditions_page,methods=["GET", "POST"])
-
+    app.add_url_rule("/Register",view_func=views.register_page,methods=["GET", "POST"])
 
     lm.init_app(app)
     lm.login_view = "home_page"

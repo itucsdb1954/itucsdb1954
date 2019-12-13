@@ -4,18 +4,36 @@ from passlib.hash import pbkdf2_sha256 as hasher
 from datetime import datetime
 from database import Database
 from course import Course
-from forms import LoginForm
+from forms import LoginForm,RegistrationForm
 from user import User,get_user
 from Homework import Homework
 from Project import Project
 from Attendance import Attendance
 from VF_Cond import Cond
 from Midterm import Midterm
+from passlib.hash import sha256_crypt
 
 def logout_page():
     logout_user()
     flash("You have logged out.")
     return redirect(url_for("home_page"))
+
+def register_page():
+    db = current_app.config["db"]
+    form = RegistrationForm()
+    if request.method=="GET":
+        return render_template("register.html")
+    else:
+        if form.validate_on_submit():
+            name=form.data["name"]
+            Username=form.data["username"]
+            email=form.data["email"]
+            password=sha256_crypt.encrypt((str(form.data["password"])))
+            user=User(username,password)
+            user.email=email
+            user.name=name
+            db.add_user(user)
+        return redirect(url_for("home_page"))
 
 def home_page():
     today=datetime.today()

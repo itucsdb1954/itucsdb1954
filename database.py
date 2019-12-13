@@ -5,11 +5,21 @@ from Midterm import Midterm
 from Homework import Homework
 from Project import Project
 from Attendance import Attendance
+from user import User
 
 class Database:
     def __init__(self,dbfile):
         self.dbfile=dbfile
 
+#users
+    def add_user(self,User):
+        with dbapi2.connect(self.dbfile) as connection:
+            cursor = connection.cursor()
+            query = "INSERT INTO users (username,full_name,mail,pass) VALUES (%s, %s, %s, %s)"
+            cursor.execute(query, (User.username, User.name, User.email,User.password))
+            connection.commit()
+            user_key = cursor.lastrowid
+        return user_key
 #course
     def add_course(self,course):
         with dbapi2.connect(self.dbfile) as connection:
@@ -258,3 +268,5 @@ class Database:
             cursor.execute(query, (Attendance.upper_limit_percent,Attendance.attendance[0],Attendance.attendance[1],Attendance.attendance[2],Attendance.attendance[3],Attendance.attendance[4],Attendance.attendance[5],Attendance.attendance[6],Attendance.attendance[7],Attendance.attendance[8],Attendance.attendance[9],Attendance.attendance[10],Attendance.attendance[11],Attendance.attendance[12],Attendance.attendance[13],Attendance.is_important, attendance_key))
             connection.commit()
         return attendance_key
+
+#VF_condition
