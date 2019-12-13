@@ -7,8 +7,7 @@
         <tr>
           <th>        </th>
           <th>Number</th>
-          <th>Each of Weight</th>
-          <th>Is it important</th>
+          <th>Each of Weight/upper_limit_percent</th>
 
         </tr>
         {%if midterm.is_important %}
@@ -16,7 +15,6 @@
           <th>Midterm:</th>
           <td>{{ midterm.number_of_midterm}}</td>
           <td>{{ midterm.midterm_weight}}</td>
-          <td>{{midterm.is_important}}</td>
         </tr>
         {%endif%}
         {%if homework.is_important %}
@@ -24,7 +22,6 @@
           <th>Homework:</th>
           <td>{{ homework.number_of_homework }}</td>
           <td>{{ homework.homework_weight}}</td>
-          <td>{{ homework.is_important}}</td>
         </tr>
         {%endif%}
         {%if project.is_important %}
@@ -32,22 +29,21 @@
           <th>Project:</th>
           <td>{{ project.number_of_project }}</td>
           <td>{{ project.project_weight}}</td>
-          <td>{{ project.is_important}}</td>
         </tr>
         {%endif%}
-
+        {%if attendance.is_important %}
         <tr>
           <th>Attendance:</th>
+          <td>14</td>
           <td>{{ attendance.upper_limit_percent }}</td>
-          <td>X</td>
-          <td>{{ attendance.is_important}}</td>
         </tr>
+        {%endif%}
       </table>
       <br>
       <br>
-      {%if course.VF_conditions == "YES" %}
+      {%if course.VF_conditions == 1 %}
       <form action="" method="post" name="attendance_form">
-
+        {%if attendance.is_important %}
         <div class="attendance">
           <h1>Attendance Table</h1>
           <table>
@@ -58,99 +54,85 @@
             <tr>
               <td>Week1</td>
               <td>
-                <input type="range" name="week1" min="0" max="1">
-                <br>
+                <input type="range" name="week1" min="0" max="1" value="{{attendance.attendance[0]}}">
               </td>
             </tr>
             <tr>
               <td>Week2</td>
               <td>
-                <input type="range" name="week2" min="0" max="1">
-                <br>
+                <input type="range" name="week2" min="0" max="1" value="{{attendance.attendance[1]}}">
               </td>
             </tr>
             <tr>
               <td>Week3</td>
               <td>
-                <input type="range" name="week3" min="0" max="1">
-                <br>
+                <input type="range" name="week3" min="0" max="1" value="{{attendance.attendance[2]}}">
               </td>
             </tr>
             <tr>
               <td>Week4</td>
               <td>
-                <input type="range" name="week4" min="0" max="1">
-                <br>
+                <input type="range" name="week4" min="0" max="1" value="{{attendance.attendance[3]}}">
               </td>
             </tr>
             <tr>
               <td>Week5</td>
               <td>
-                <input type="range" name="week5" min="0" max="1">
-                <br>
+                <input type="range" name="week5" min="0" max="1" value="{{attendance.attendance[4]}}">
               </td>
             </tr>
             <tr>
               <td>Week6</td>
               <td>
-                <input type="range" name="week6" min="0" max="1">
-                <br>
+                <input type="range" name="week6" min="0" max="1" value="{{attendance.attendance[5]}}">
               </td>
             </tr>
             <tr>
               <td>Week7</td>
               <td>
-                <input type="range" name="week7" min="0" max="1">
-                <br>
+                <input type="range" name="week7" min="0" max="1" value="{{attendance.attendance[6]}}">
               </td>
             </tr>
             <tr>
               <td>Week8</td>
               <td>
-                <input type="range" name="week8" min="0" max="1">
-                <br>
+                <input type="range" name="week8" min="0" max="1" value="{{attendance.attendance[7]}}">
               </td>
             </tr>
             <tr>
               <td>Week9</td>
               <td>
-                <input type="range" name="week9" min="0" max="1">
-                <br>
+                <input type="range" name="week9" min="0" max="1" value="{{attendance.attendance[8]}}">
               </td>
             </tr>
             <tr>
               <td>Week10</td>
               <td>
-                <input type="range" name="week10" min="0" max="1">
-                <br>
+                <input type="range" name="week10" min="0" max="1" value="{{attendance.attendance[9]}}">
               </td>
             </tr>
             <tr>
               <td>Week11</td>
               <td>
-                <input type="range" name="week11" min="0" max="1">
-                <br>
+                <input type="range" name="week11" min="0" max="1" value="{{attendance.attendance[10]}}">
               </td>
             </tr>
             <tr>
               <td>Week12</td>
               <td>
-                <input type="range" name="week12" min="0" max="1">
-                <br>
+                <input type="range" name="week12" min="0" max="1" value="{{attendance.attendance[11]}}">
               </td>
             </tr>
             <tr>
               <td>Week13</td>
               <td>
-                <input type="range" name="week13" min="0" max="1">
-                <br>
+                <input type="range" name="week13" min="0" max="1" value="{{attendance.attendance[12]}}">
               </td>
             </tr>
             <tr>
               <td>Week14</td>
               <td>
-                <input type="range" name="week14" min="0" max="1">
-                <br>
+                <input type="range" name="week14" min="0" max="1" value="{{attendance.attendance[13]}}">
               </td>
             </tr>
           </table>
@@ -160,41 +142,65 @@
             </div>
           </div>
         </div>
-
+        {%endif%}
           <br>
           <br>
+          {%if midterm.is_important or homework.is_important or project.is_important%}
           <div class="Midterm">
             <h1>Points Table</h1>
             <table>
               <tr>
                 <th>RESULT: </th>
+                {%if midterm.number_of_midterm ==1 or homework.number_of_homework==1 or project.number_of_project==1%}
                 <th>1</th>
+                {%endif%}
+                {%if midterm.number_of_midterm ==2 or homework.number_of_homework==2 or project.number_of_project==2%}
                 <th>2</th>
+                {%endif%}
+                {%if midterm.number_of_midterm ==3 or homework.number_of_homework==3 or project.number_of_project==2%}
                 <th>3</th>
+                {%endif%}
+                {%if midterm.number_of_midterm ==4 or homework.number_of_homework==4 or project.number_of_project==2%}
                 <th>4</th>
+                {%endif%}
               </tr>
+              {%if midterm.is_important %}
               <tr>
                 <td>Midterm:</td>
                 <td><input type="text" name="Midterm1" value="{{midterm.midterm_score[0]}}"></td>
+                {%if midterm.number_of_midterm==2%}
                 <td><input type="text" name="Midterm2" value="{{midterm.midterm_score[1]}}"></td>
+                {%endif%}
                 <td></td>
                 <td></td>
               </tr>
+              {%endif%}
+              {%if homework.is_important %}
               <tr>
                 <td>Homework:</td>
                 <td><input type="text" name="Homework1" value="{{homework.homework_score[0]}}"></td>
+                {%if homework.number_of_homework>1 %}
                 <td><input type="text" name="Homework2" value="{{homework.homework_score[1]}}"></td>
+                {%endif%}
+                {%if homework.number_of_homework>2 %}
                 <td><input type="text" name="Homework3" value="{{homework.homework_score[2]}}"></td>
+                {%endif%}
+                {%if homework.number_of_homework>3 %}
                 <td><input type="text" name="Homework4" value="{{homework.homework_score[3]}}"></td>
+                {%endif%}
               </tr>
+              {%endif%}
+              {%if project.is_important %}
               <tr>
                 <td>Project:</td>
                 <td><input type="text" name="Project1" value="{{project.project_score[0]}}" ></td>
+                {%if project.number_of_project==2%}
                 <td><input type="text" name="Project2" value="{{project.project_score[1]}}" ></td>
+                {%endif%}
                 <td></td>
                 <td></td>
               </tr>
-
+              {%endif%}
             </table>
             <div class="field is-grouped">
               <div class="control">
@@ -202,6 +208,7 @@
               </div>
             </div>
           </div>
+          {%endif%}
         </form>
 
       {%endif%}
