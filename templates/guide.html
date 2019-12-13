@@ -2,7 +2,134 @@
 {% block title %}GUIDE{% endblock %}
 {% block content %}
 
-<p>Buraya programın nasıl çalıştığını anlatıcam</p>
+<h1 class="title">VForNOT's Guide</h1>
+<br>
 
+<ol>
+  <a href="#login"><li>Login Page</li></a>
+  <a href="#register"><li>Register Page</li></a>
+  <a href="#navbar"><li>Navbar</li></a>
+  <a href="#courseadd"><li>Course Adding</li></a>
+  <a href="#courselist"><li>Courses' List</li></a>
+  <a href="#coursepage"><li>Course's Page</li></a>
 
+  <ol>
+    <a href="#Vfadd"><li>Course's VF Condition Adding</li></a>
+    <a href="#Vfsee"><li>Course's VF Condition Seeing</li></a>
+
+    <ol>
+      <a href="#condtab"><li>Course's VF Condition Table</li></a>
+      <a href="#att"><li>Course's Attendance Information</li></a>
+      <a href="#point"><li>Courses's Point Information</li></a>
+
+    </ol>
+  </ol>
+</ol>
+
+<div class="login">
+  <a name="login"></a>
+  <h2>1)Login Page</h2>
+  <img src="static/login.png" alt="Loginpage">
+  <p>On this page you can see VForNOT's logo and login form. You can login with your username and password. If you are not a registered user, click "Not Register Yet?" You can go to the registration page by clicking on the link.</p>
+  <a href="#top">Go to top</a>
+</div>
+<br>
+
+<div class="">
+  <a name="register"></a>
+  <h2>2)Register Page</h2>
+  <img src="static/register.png" alt="registerpage">
+  <p>If you are not a registered user, you can register by entering your name, user name, e-mail address and password.</p>
+  <a href="#top">Go to top</a>
+</div>
+<br>
+
+<div class="">
+  <a name="navbar"></a>
+  <h2>3)Navbar</h2>
+
+  <p>With Navbar you can access:</p>
+  <li>Guide</li>
+  <li>Adding courses page</li>
+  <li>List courses page</li>
+  <li>User page</li>
+  <li>Log out page</li>
+  <a href="#top">Go to top</a>
+</div>
+<br>
+
+<div class="">
+  <a name="courseadd"></a>
+  <h2>4)Course Adding</h2>
+  <img src="static/addcourse.png" alt="addcourse">
+  <p>On the course adding page, you can add the course name, the description of the course, the name of the instructor, the description of the course, and whether or not there are VF requirements for the course.</p>
+  <a href="#top">Go to top</a>
+</div>
+<br>
+
+<div class="">
+  <a name="courselist"></a>
+  <h2>5)Courses' List</h2>
+  <img src="static/courseslist.png" alt="courseslist">
+  <p>You can see the list of all courses you have added. You can delete what you want by using the Checkbox next door. You can reach the courses with VF requirements by clicking the "SEE" button in the table.</p>
+  <a href="#top">Go to top</a>
+</div>
+<br>
+
+<div class="">
+  <a name="coursepage"></a>
+  <h2>6)Course's Page</h2>
+  <img src="static/coursepage.png" alt="coursepage">
+  <p>Using the navbar on the course page, you can go to places already introduced in the previous chapters. You have 3 additional buttons:</p>
+  <li><b>Edit:</b>You can update the information you've added on the Add courses page.</li>
+  <li><b>Add/Edit VF Conditions:</b></li>
+  <li><b>See VF Conditions:</b></li>
+  <a href="#top">Go to top</a>
+</div>
+<br>
+
+<div class="">
+  <a name="Vfadd"></a>
+  <h3>6.1)Course's VF Condition Adding</h3>
+  <li><img src="static/vfadd1.png" alt="vfadd1"></li>
+  <br><br>
+  <li><img src="static/vfadd2.png" alt="vfadd2"></li>
+  <li>You select how many midterm exams, how many homework you have, how many projects you have, and the weight of each of them.</li>
+  <li>If attendance is important, how many percent mandatory can you choose.</li>
+  <a href="#top">Go to top</a>
+</div>
+<br>
+
+<div class="">
+  <a name="Vfsee"></a>
+  <h3>6.2)Course's VF Condition Seeing</h3>
+  <br>
+  <div class="">
+    <a name="condtab"></a>
+    <h4><i>6.2.1)Course's VF Condition Table</i></h4>
+    <img src="static/vfcond1.png" alt="vfcond1">
+    <p>You can see the table with Vf conditions.</p>
+    <a href="#top">Go to top</a>
+  </div>
+  <br>
+
+  <div class="">
+    <a name="att"></a>
+    <h4><i>6.2.2)Course's Attendance Information</i></h4>
+    <img src="static/vfcond2.png" alt="vfcond2">
+    <p>You can update your attendance information every week. Positive means that you have participated in the lesson and negative means you have not.</p>
+    <a href="#top">Go to top</a>
+  </div>
+  <br>
+
+  <div class="">
+    <a name="point"></a>
+    <h4><i>6.2.3)Courses's Point Information</i></h4>
+    <img src="static/vfcond3.png" alt="vfcond3">
+    <p>Enter the score information of the Vf terms you've scored and then see it here. "0" means you haven't entered any notes yet.</p>
+    <a href="#top">Go to top</a>
+  </div>
+  <br>
+
+</div>
 {% endblock %}

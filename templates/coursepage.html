@@ -32,14 +32,25 @@
            href="{{ request.path }}/edit">Edit</a>
         {%if course.VF_conditions==1%}
         <a class="button is-primary is-outlined is-small"
-          href="{{ request.path }}/VF_conditions_add">Add/Edit VF Conditions</a>
+          href="{{ request.path }}/VF_conditions_add" >Add/Edit VF Conditions</a>
+
         {%endif%}
         {%if course.VF_conditions==1%}
         <a class="button is-primary is-outlined is-small"
-           href="{{ request.path }}/VF_conditions">See VF Conditions</a>
+           href="{{ request.path }}/VF_conditions" onclick="myFunction()">See VF Conditions</a>
         {%endif%}
       </div>
     </div>
-
-
+      <p id="message"></p>
+      <script>
+      function myFunction() {
+        var txt;
+        if (confirm("First you have you add VF Conditions! If you did it ignore !!")) {
+          txt = "You pressed OK!";
+        } else {
+          txt = "You pressed Cancel!";
+        }
+        document.getElementById("message").innerHTML = txt;
+      }
+      </script>
 {% endblock %}
