@@ -40,7 +40,7 @@
                 {{ course.VF_conditions }}
               </td>
               <td>
-                {% if course.VF_conditions=="YES"%}
+                {% if course.VF_conditions==1%}
                 <div class="control">
                   <button class="button is-primary is-small">
                     <a href="{{ url_for('course_page', course_key=course_key) }}">

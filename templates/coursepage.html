@@ -30,15 +30,13 @@
       <div class="control">
         <a class="button is-primary is-outlined is-small"
            href="{{ request.path }}/edit">Edit</a>
-        {%if course.VF_conditions=="YES"%}
+        {%if course.VF_conditions==1%}
         <a class="button is-primary is-outlined is-small"
           href="{{ request.path }}/VF_conditions_add">Add/Edit VF Conditions</a>
         {%endif%}
-        {%if course.VF_conditions=="YES"%}
-        {%if course.VF_conditions=="YES"%}
+        {%if course.VF_conditions==1%}
         <a class="button is-primary is-outlined is-small"
            href="{{ request.path }}/VF_conditions">See VF Conditions</a>
-        {%endif%}
         {%endif%}
       </div>
     </div>

@@ -36,7 +36,7 @@
       <div class="field">
         <label for="description" class="label">Description</label>
         <div class="control">
-          <textarea name="description" rows="5" cols="20" placeholder="{{ values['description'] }}"></textarea>
+          <textarea name="description" rows="5" cols="20" value="{{ values['description'] }}"></textarea>
         </div>
         {% if 'description' in values.errors %}
         <p class="help has-background-warning">
