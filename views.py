@@ -71,10 +71,7 @@ def course_add_page():
         course = Course(form_name,form_department,form_description,form_lecturerName,form_VF_conditions)
         db = current_app.config["db"]
         course_key = db.add_course(course)
-        if course.VF_conditions == "YES":
-            return redirect(url_for("courses_page"))
-        if course.VF_conditions == "NO":
-            return redirect(url_for("course_page",course_key=course_key))
+        return redirect(url_for("courses_page"))
 
 
 def course_edit_page(course_key):
