@@ -18,7 +18,7 @@ User Guide
            3.Courses's Point Information
 
 
-   .. figure:: pictures/logo.jpeg
+.. figure:: pictures/logo.jpeg
       :scale: 50 %
       :alt: map to buried treasure
 
