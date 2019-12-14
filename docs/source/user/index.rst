@@ -8,13 +8,11 @@ User Guide
 
 
 
-.. figure:: pictures/site-map.png
-      :scale: 60 %
-      :alt: map to buried treasure
+
 
 LOGO:
 
-.. figure:: pictures/Logo.jpeg
+.. figure:: pictures/site-map.png
       :scale: 50 %
       :alt: map to buried treasure
 
