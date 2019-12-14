@@ -6,6 +6,8 @@ User Guide
 **Site's map**::
 
 
+
+
 .. figure:: pictures/site-map.png
       :scale: 60 %
       :alt: map to buried treasure
