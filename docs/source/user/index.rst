@@ -14,6 +14,8 @@ User Guide
       
 
 **LOGO:**
+
+
 .. figure:: pictures/Logo.jpeg
       :scale: 50 %
       :alt: map to buried treasure
