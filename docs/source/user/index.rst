@@ -17,7 +17,7 @@ User Guide
 
 
 .. figure:: pictures/Logo.jpeg
-      :scale: 50 %
+      :scale: 30 %
       :alt: map to buried treasure
 .. toctree::
 
