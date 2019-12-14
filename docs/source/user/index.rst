@@ -5,18 +5,9 @@ User Guide
 
 **Site's map**::
 
- **1.Login Page**
- **2.Register Page**
- **3.Navbar**
- **4.Course Adding**
- **5.Courses' List**
- **6.Course's Page**
-        *1.Course's VF Condition Adding*
-        *2.Course's VF Condition Seeing*
-               1.Course's VF Condition Table
-               2.Course's Attendance Information
-               3.Courses's Point Information
-
+.. figure:: pictures/site-map.png
+      :scale: 50 %
+      :alt: map to buried treasure
 
 .. figure:: pictures/Logo.jpeg
       :scale: 50 %
