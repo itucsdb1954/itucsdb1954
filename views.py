@@ -196,10 +196,11 @@ def conditionAdding_page(course_key):
 
         attendance=Attendance(upper_limit_percent,is_important,course_key)
         db = current_app.config["db"]
-        db.add_midterm(midterm)
-        db.add_homework(homework)
-        db.add_project(project)
-        db.add_attendance(attendance)
+        midterm_key=db.add_midterm(midterm)
+        homework_key=db.add_homework(homework)
+        project_key=db.add_project(project)
+        attendance_key=db.add_attendance(attendance)
+        vfconditions_key=db.add_Vfconditions(attendance_key,midterm_key,homework_key,project_key)
         return redirect(url_for("conditions_page",course_key=course_key))
 
 def conditions_page(course_key):

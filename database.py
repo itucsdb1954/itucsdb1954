@@ -270,3 +270,37 @@ class Database:
         return attendance_key
 
 #VF_condition
+
+    def add_Vfconditions(self,attendance_key,midterm_key,homework_key,project_key):
+        if attendance_key>0 and midterm_key>0 and homework_key>0 and project_key>0:
+            with dbapi2.connect(self.dbfile) as connection:
+                cursor = connection.cursor()
+                query = "INSERT INTO vf_conditions(attendance,midterm,homework,project) VALUES (%s, %s, %s, %s)"
+                cursor.execute(query, (attendance_key,midterm_key,homework_key,project_key))
+                connection.commit()
+                vfconditions_key = cursor.lastrowid
+            return vfconditions_key
+
+    def delete_Vfconditions(self,vfconditions_key):
+        with dbapi2.connect(self.dbfile) as connection:
+            cursor = connection.cursor()
+            query = "DELETE FROM vf_conditions WHERE (ID = %s)"
+            cursor.execute(query, (vfconditions_key))
+            connection.commit()
+
+    def get_Vfconditions(self,vfconditions_key):
+        with dbapi2.connect(self.dbfile) as connection:
+            cursor = connection.cursor()
+            query = "SELECT attendance,midterm,homework,project FROM vf_conditions WHERE (id = %s)"
+            cursor.execute(query, (vfconditions_key))
+            attendance,midterm,homework,project = cursor.fetchone()
+            Cond_ = Cond(attendance,midterm,homework,projec)
+        return Cond_
+
+    def update_Vfconditions(self,vfconditions_key,Cond):
+        with dbapi2.connect(self.dbfile) as connection:
+            cursor = connection.cursor()
+            query = "UPDATE vf_conditions SET attendance = %s, midterm = %s,homework = %s,project = %s, WHERE (ID = %s)"
+            cursor.execute(query, (Cond.attendance,Cond.midterm,Cond.homework,Cond.project,vfconditions_key))
+            connection.commit()
+        return vfconditions_key
