@@ -1,37 +1,20 @@
 {% extends "layout.html" %}
 {% block title %}{{current_user.username}}{% endblock %}
 {% block content %}
-    <!-- Add icon library -->
 
-    <link rel="stylesheet" href="{{url_for('static',filename='userpage.css')}}"/>
-    <h1 class="title">Hello {{current_user.username}} !!!</h1>
-    <div class="first">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="background.jpg" alt="{{current_user.username}}" style="width:300px;height:300px;">
-          </div>
-          <div class="flip-card-back">
-            <h1>{{current_user.username}}</h1>
-            <p>We love that guy</p>
-          </div>
-        </div>
-      </div>
-      <div class="first">
-        <table class="table">
-          <tr>
-            <th><i>You can see your VF courses below:</i></th>
-          </tr>
-          {% for course_key, course in courses %}
-          <tr>
+          <div class="information-box">
+            <h1 class="title">Hello Student !!!</h1>
+            <table class="table">
+              <tr>
+                <th><i>You can see your VF courses below:</i></th>
+              </tr>
+              {% for course_key, course in courses %}
+              <tr>
                 <td>
                   {{ course.name }}
                 </td>
-          </tr>
-          {% endfor %}
-      </div>
-
-    </div>
-
+              </tr>
+              {% endfor %}
+            </div>
 
 {% endblock %}
