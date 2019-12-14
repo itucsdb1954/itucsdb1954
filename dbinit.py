@@ -61,10 +61,10 @@ CREATE TABLE IF NOT EXISTS projects(
 """
 CREATE TABLE IF NOT EXISTS vf_conditions(
     id SERIAL PRIMARY KEY ,
-    attendance INTEGER REFERENCES attendances(id),
-    midterm INTEGER REFERENCES midterms(id),
-    homework INTEGER REFERENCES homeworks(id),
-    project INTEGER REFERENCES projects(id)
+    attendance INTEGER REFERENCES attendances,
+    midterm INTEGER REFERENCES midterms,
+    homework INTEGER REFERENCES homeworks,
+    project INTEGER REFERENCES projects
 );
 """,
 """
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS courses(
     course_description VARCHAR(100) ,
     lecturer_name VARCHAR(100) ,
     VF_condition INTEGER,
-    vf_conditions_id INTEGER REFERENCES vf_conditions(id)
+    vf_conditions_id INTEGER REFERENCES vf_conditions
 );
 """,
 """
