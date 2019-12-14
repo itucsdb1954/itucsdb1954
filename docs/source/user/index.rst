@@ -5,7 +5,7 @@ User Guide
 
 **Site's map**::
 
- 1.Login Page
+** 1.Login Page
  2.Register Page
  3.Navbar
  4.Course Adding
@@ -15,7 +15,7 @@ User Guide
       2.Course's VF Condition Seeing
            1.Course's VF Condition Table
            2.Course's Attendance Information
-           3.Courses's Point Information
+           3.Courses's Point Information **
 
 
 .. figure:: pictures/logo.jpeg
