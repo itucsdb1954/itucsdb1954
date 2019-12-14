@@ -13,6 +13,8 @@ from VF_Cond import Cond
 from Midterm import Midterm
 from passlib.hash import sha256_crypt
 
+
+
 def logout_page():
     logout_user()
     flash("You have logged out.")
@@ -24,18 +26,19 @@ def register_page():
     if request.method=="GET":
         return render_template("register.html")
     else:
-        if form.validate_on_submit():
-            name=form.data["name"]
-            Username=form.data["username"]
-            email=form.data["email"]
-            password=sha256_crypt.encrypt((str(form.data["password"])))
-            user=User(username,password)
-            user.email=email
-            user.name=name
-            db.add_user(user)
-        return redirect(url_for("home_page"))
+        name=request.form["Name"]
+        Username=request.form["Username"]
+        email=request.form["Email Address"]
+        #password=sha256_crypt.encrypt((str(request.form["Password"])))
+        password=request.form["Password"]
+        user=User(Username,password)
+        user.email=email
+        user.name=name
+        db.add_user(user)
+    return redirect(url_for("home_page"))
 
 def home_page():
+    db = current_app.config["db"]
     today=datetime.today()
     day_name=today.strftime("%A")
     form = LoginForm()
@@ -44,10 +47,10 @@ def home_page():
     else:
         if form.validate_on_submit():
             username = form.data["username"]
-            user = get_user(username)
+            user = db.get_user(username)
             if user is not None:
                 password = form.data["password"]
-                if hasher.verify(password, user.password):
+                if (password==user.password):
                     login_user(user)
                     flash("You have logged in.")
                     next_page = request.args.get("next", url_for("guide_page"))
@@ -200,7 +203,8 @@ def conditionAdding_page(course_key):
         homework_key=db.add_homework(homework)
         project_key=db.add_project(project)
         attendance_key=db.add_attendance(attendance)
-        vfconditions_key=db.add_Vfconditions(attendance_key,midterm_key,homework_key,project_key)
+        Cond_=Cond(attendance_key,midterm_key,homework_key,project_key)
+        vfconditions_key=db.add_Vfconditions(Cond_)
         return redirect(url_for("conditions_page",course_key=course_key))
 
 def conditions_page(course_key):
