@@ -29,8 +29,7 @@ courses Table
 			self.lecturerName=lecturerName
 			self.description=description
 			self.VF_conditions=VF_conditions
-* There is functions to access and manipulate "courses" table at the database.For example adding a Course object 
-to database is :
+* There is functions to access and manipulate "courses" table at the database.For example adding a Course object to database is :
 .. code-block:: python
 
 	def add_course(self,course):
