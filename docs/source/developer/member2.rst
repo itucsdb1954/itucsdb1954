@@ -194,8 +194,7 @@ midterms Table
         self.is_important=is_important
         self.id=course_key
 		
-* There is functions to access and manipulate "midterms" table at the database.For example adding a Midterm object 
-to database is :
+* There is functions to access and manipulate "midterms" table at the database.For example adding a Midterm object to database is :
 .. code-block:: python
 
 	def add_midterm(self,Midterm):
