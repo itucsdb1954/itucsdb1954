@@ -23,6 +23,7 @@ information from register page and save it to database.We are using this table t
 * There is a USER class to use in database operations
 
 .. code-block:: python
+
 	class User(UserMixin):
 		def __init__(self, username,password):
 			self.username = username
@@ -52,6 +53,7 @@ to database is :
 
 
 .. code-block:: python
+
 	def add_user(self,User):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
@@ -64,6 +66,7 @@ to database is :
 * Deleting user from database:
 
 .. code-block:: python
+
     def delete_user(self,user_key):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
@@ -74,6 +77,7 @@ to database is :
 * Getting information of a user from "username" attribute:
 
 .. code-block:: python
+
     def get_user(self,Username):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
