@@ -165,3 +165,77 @@ to database is :
             connection.commit()
         return homework_key
 	
+
+midterms Table
+--------------
+"midterms" table stores midterms points at database.It's "id" references "vf_condition" table.Content of table given below:
+.. code-block:: python
+
+	INIT_STATEMENTS = [
+		"""
+		CREATE TABLE IF NOT EXISTS midterms(
+			id SERIAL PRIMARY KEY,
+			number_of_midterm INTEGER ,
+			midterm_weight INTEGER CHECK(midterm_weight<100 AND midterm_weight>=0),
+			midterm_score1 INTEGER DEFAULT(0),
+			midterm_score2 INTEGER DEFAULT(0),
+			is_important BOOLEAN
+		);
+		"""
+	]
+* There is a "Midterm" class to use at database operations:
+.. code-block:: python
+
+	class Midterm:
+    def __init__(self,number_of_midterm,midterm_weight,is_important,course_key):
+        self.number_of_midterm=number_of_midterm
+        self.midterm_weight=midterm_weight
+        self.midterm_score=[0,0]
+        self.is_important=is_important
+        self.id=course_key
+		
+* There is functions to access and manipulate "midterms" table at the database.For example adding a Midterm object 
+to database is :
+.. code-block:: python
+
+	def add_midterm(self,Midterm):
+        with dbapi2.connect(self.dbfile) as connection:
+            cursor = connection.cursor()
+            query = "INSERT INTO midterms(number_of_midterm, midterm_weight, midterm_score1,midterm_score2,is_important) VALUES (%s, %s, %s, %s, %s)"
+            cursor.execute(query, (Midterm.number_of_midterm, Midterm.midterm_weight, Midterm.midterm_score[0],Midterm.midterm_score[1], Midterm.is_important))
+            connection.commit()
+            midterm_key = cursor.lastrowid
+        return midterm_key
+		
+* Deleting midterm from database by using key:
+.. code-block:: python
+
+	def delete_midterm(self,midterm_key):
+        with dbapi2.connect(self.dbfile) as connection:
+            cursor = connection.cursor()
+            query = "DELETE FROM midterms WHERE (ID = %s)"
+            cursor.execute(query, (midterm_key,))
+            connection.commit()
+* Getting a midterm from database by using key:
+.. code-block:: python
+
+	def get_midterm(self,midterm_key):
+        with dbapi2.connect(self.dbfile) as connection:
+            cursor = connection.cursor()
+            query = "SELECT number_of_midterm, midterm_weight, midterm_score1,midterm_score2,is_important FROM midterms WHERE (id = %s)"
+            cursor.execute(query, (midterm_key,))
+            number_of_midterm, midterm_weight, midterm_score1,midterm_score2,is_important = cursor.fetchone()
+            midterm_ = Midterm(number_of_midterm, midterm_weight,is_important,midterm_key)
+            midterm_.midterm_score[0]=midterm_score1
+            midterm_.midterm_score[1]=midterm_score2
+        return midterm_
+* Updating midterm at database by using key :
+.. code-block:: python
+
+	def update_midterm(self,midterm_key,Midterm):
+        with dbapi2.connect(self.dbfile) as connection:
+            cursor = connection.cursor()
+            query = "UPDATE midterms SET number_of_midterm = %s, midterm_weight = %s, midterm_score1 = %s, midterm_score2 = %s, is_important = %s WHERE (id = %s)"
+            cursor.execute(query, (Midterm.number_of_midterm,Midterm.midterm_weight,Midterm.midterm_score[0],Midterm.midterm_score[1],Midterm.is_important, midterm_key))
+            connection.commit()
+        return midterm_key
