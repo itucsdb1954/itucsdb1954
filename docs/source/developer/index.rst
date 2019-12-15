@@ -16,7 +16,7 @@ Database Design
    Blue:ALPER MERİÇ
    ORANGE:Together
    
-.. figure:: images/ertable.png
+.. figure:: images/er table.png
    :scale: 70 %
    :alt: map to buried treasure
    
