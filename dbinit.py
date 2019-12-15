@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS homeworks(
     homework_score2 INTEGER DEFAULT(0),
     homework_score3 INTEGER DEFAULT(0),
     homework_score4 INTEGER DEFAULT(0),
-    is_important INTEGER
+    is_important BOOLEAN
 );
 """
 ,
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS midterms(
     midterm_weight INTEGER CHECK(midterm_weight<100 AND midterm_weight>0),
     midterm_score1 INTEGER DEFAULT(0),
     midterm_score2 INTEGER DEFAULT(0),
-    is_important INTEGER
+    is_important BOOLEAN
 );
 """
 ,
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS projects(
     project_weight INTEGER CHECK(project_weight<100 AND project_weight>0)  ,
     project_score1 INTEGER DEFAULT(0),
     project_score2 INTEGER DEFAULT(0),
-    is_important INTEGER
+    is_important BOOLEAN
 );
 """
 ,
