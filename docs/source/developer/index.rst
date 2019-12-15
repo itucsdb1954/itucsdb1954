@@ -12,6 +12,13 @@ Database Design
    :alt: map to buried treasure
    
    -Entity Distribution
+   Red:AHMET ÖZDEMİR
+   Blue:ALPER MERİÇ
+   ORANGE:Together
+   
+.. figure:: images/ertable.png
+   :scale: 70 %
+   :alt: map to buried treasure
    
 Code
 ----
