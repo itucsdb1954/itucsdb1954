@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS attendances(
     attendance_hour12 INTEGER DEFAULT(0),
     attendance_hour13 INTEGER DEFAULT(0),
     attendance_hour14 INTEGER DEFAULT(0),
-    is_important INTEGER
+    is_important BOOLEAN
 );
 """
 ,
