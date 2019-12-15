@@ -19,7 +19,6 @@ courses Table
 	);
 	"""
 	]
-
 * There is a "Course" class to use at database operations:
 .. code-block:: python
 
@@ -36,7 +35,7 @@ courses Table
 	def add_course(self,course,username):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
-            query = "INSERT INTO courses (department,course_name, lecturer_name,course_description,VF_condition,username) VALUES (%s, %s, %s, %s, %s, %s)"
+            query = "INSERT INTO courses (department,course_name, lecturer_name,course_description,VF_condition,username) VALUES (%s,%s, %s, %s, %s, %s)"
             cursor.execute(query, (course.department, course.name, course.lecturerName, course.description,course.VF_conditions,username))
             connection.commit()
             course_key = cursor.lastrowid
@@ -117,8 +116,7 @@ homeworks Table
 		self.is_important=is_important
 		self.id=course_key
 		
-* There is functions to access and manipulate "homeworks" table at the database.For example adding a Homework object 
-to database is :
+* There is functions to access and manipulate "homeworks" table at the database.For example adding a Homework object to database is :
 .. code-block:: python
 
 	def add_homework(self,Homework,username):
@@ -296,7 +294,7 @@ COURSES LIST PAGE
 		
 COURSE EDIT PAGE
 ----------------
-Can edit courses by this function :
+* Can edit courses by this function :
 .. code-block:: python
 
 	def course_edit_page(course_key):
@@ -362,7 +360,7 @@ USER PAGE
 	    
 CONDITION ADDING PAGE
 ---------------------
-Adding a vf condition to a course provided by this function:
+* Adding a vf condition to a course provided by this function:
 .. code-block:: python
 
 	def conditionAdding_page(course_key):
@@ -419,7 +417,7 @@ Adding a vf condition to a course provided by this function:
 		
 CONDITION EDITING PAGE
 ----------------------
-Conditions can be edited by this function:
+* Conditions can be edited by this function:
 .. code-block:: python
 
 	def conditionEditing_page(course_key):
@@ -476,7 +474,7 @@ Conditions can be edited by this function:
 
 CONDITIONS LIST PAGE
 --------------------
-Can see vf conditions from this function:
+* Can see vf conditions from this function:
 .. code-block:: python
 
 	def conditions_page(course_key):
