@@ -100,6 +100,16 @@ CREATE TABLE IF NOT EXISTS users(
     pass VARCHAR(50) NOT NULL
 );
 """
+     ,
+"""
+ALTER TABLE attendances ADD CONSTRAINT num1 FOREIGN KEY(id) REFERENCES courses(id);
+ALTER TABLE homeworks ADD CONSTRAINT num2 FOREIGN KEY(id) REFERENCES courses(id);
+ALTER TABLE midterms ADD CONSTRAINT num3 FOREIGN KEY(id) REFERENCES courses(id);
+ALTER TABLE projects ADD CONSTRAINT num4 FOREIGN KEY(id) REFERENCES courses(id);
+ALTER TABLE vf_conditions ADD CONSTRAINT num5 FOREIGN KEY(id) REFERENCES courses(id);
+ALTER TABLE user_course ADD CONSTRAINT num10 FOREIGN KEY(user_course_id) REFERENCES  users(id);
+ALTER TABLE user_course ADD CONSTRAINT num11 FOREIGN KEY(course_no) REFERENCES courses(id);
+"""
 ]
 
 
