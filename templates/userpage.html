@@ -4,19 +4,21 @@
 
           <div class="box">
             <h1 class="title">Hello Student !!!</h1>
-            <table class="table">
-              <tr>
-                <th><i>You can see your VF courses below:</i></th>
-              </tr>
-              {% for course_key, course in courses %}
-              <tr>
-                <td>
-                  {{ course.name }}
-                </td>
-              </tr>
-              {% endfor %}
-              </table>
-              <div class="box">
+            <div class="box">
+                      <table class="table">
+                        <tr>
+                          <th><i>You can see your VF courses below:</i></th>
+                        </tr>
+                        {% for course_key, course in courses %}
+                        <tr>
+                          <td>
+                            {{ course.name }}
+                          </td>
+                        </tr>
+                        {% endfor %}
+                        </table>
+                    </div>         
+             <div class="box">
                 <div class="field is-grouped">
                   <div class="control">
                     <h5>Do you want reset your program ?</h5>
