@@ -79,7 +79,8 @@ CREATE TABLE IF NOT EXISTS courses(
     course_name VARCHAR(100) ,
     course_description VARCHAR(100) ,
     lecturer_name VARCHAR(100) ,
-    vf_condition INTEGER
+    vf_condition INTEGER,
+    username VARCHAR(50) NOT NULL
 );
 """
 ,
