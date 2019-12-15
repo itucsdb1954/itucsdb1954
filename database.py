@@ -109,7 +109,7 @@ class Database:
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
             query = "SELECT number_of_midterm, midterm_weight, midterm_score1,midterm_score2,is_important FROM midterms WHERE (id = %s)"
-            cursor.execute(query, (midterm_key))
+            cursor.execute(query, (midterm_key,))
             number_of_midterm, midterm_weight, midterm_score1,midterm_score2,is_important = cursor.fetchone()
             midterm_ = Midterm(number_of_midterm, midterm_weight,is_important,midterm_key)
             midterm_.midterm_score[0]=midterm_score1
