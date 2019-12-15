@@ -1,5 +1,5 @@
-from flask import render_template,current_app,request,redirect,url_for,flash,abort
-from flask_login import login_user ,logout_user,current_user
+from flask import render_template,current_app,request,redirect,url_for,flash,abort,session
+from flask_login import login_user ,logout_user,current_user,login_required
 from passlib.hash import pbkdf2_sha256 as hasher
 from datetime import datetime
 from database import Database
@@ -15,10 +15,6 @@ from passlib.hash import sha256_crypt
 
 
 
-def logout_page():
-    logout_user()
-    flash("You have logged out.")
-    return redirect(url_for("home_page"))
 
 def register_page():
     db = current_app.config["db"]
@@ -37,6 +33,7 @@ def register_page():
         db.add_user(user)
     return redirect(url_for("home_page"))
 
+
 def home_page():
     db = current_app.config["db"]
     today=datetime.today()
@@ -52,30 +49,40 @@ def home_page():
                 password = form.data["password"]
                 if (password==user.password):
                     login_user(user)
+                    session["username"]=username
                     flash("You have logged in.")
                     next_page = request.args.get("next", url_for("guide_page"))
                     return redirect(next_page)
             flash("Invalid credentials.")
         return render_template("homepage.html",day=day_name,form=form)
 
+
+def logout_page():
+        logout_user()
+        session.pop('username', None)
+        flash("You have logged out.")
+        return redirect(url_for("home_page"))
+
 def courses_page():
+    username=session["username"]
     db = Database("postgres://eqxokbcjiseyei:3bc64a91ec58aab73ba937f8652296acf5ab9b2671aba9deb9420dfbe25e5cf6@ec2-46-137-188-105.eu-west-1.compute.amazonaws.com:5432/d1f2968dk53lod")
     if request.method =="GET":
-        courses=db.get_courses()
+        courses=db.get_courses(username)
         return render_template("coursespage.html", courses=courses)
     else:
         form_course_keys=request.form.getlist("course_keys")
         for form_course_key in form_course_keys:
-            db.delete_course(int(form_course_key))
-            db.delete_midterm(int(form_course_key))
-            db.delete_project(int(form_course_key))
-            db.delete_homework(int(form_course_key))
-            db.delete_attendance(int(form_course_key))
+            db.delete_course(int(form_course_key),username)
+            db.delete_midterm(int(form_course_key),username)
+            db.delete_project(int(form_course_key),username)
+            db.delete_homework(int(form_course_key),username)
+            db.delete_attendance(int(form_course_key),username)
         return redirect(url_for("courses_page"))
 
 def course_page(course_key):
+    username=session["username"]
     db = current_app.config["db"]
-    course=db.get_course(course_key)
+    course=db.get_course(course_key,username)
     return render_template("coursepage.html", course=course)
 
 
@@ -95,15 +102,17 @@ def course_add_page():
         form_VF_conditions = request.form["VF_conditions"]
         course = Course(form_name,form_department,form_description,form_lecturerName,form_VF_conditions)
         db = current_app.config["db"]
-        course_key = db.add_course(course)
+        username=session["username"]
+        course_key = db.add_course(course,username)
         return redirect(url_for("courses_page"))
 
 
 
 def course_edit_page(course_key):
+    username=session["username"]
     if request.method == "GET":
         db = current_app.config["db"]
-        course =db.get_course(course_key)
+        course =db.get_course(course_key,username)
         if course is None:
             abort(404)
         values={"name":course.name,"department":course.department,"description":course.description,"lecturerName":course.lecturerName,"VF_conditions":course.VF_conditions}
@@ -119,31 +128,32 @@ def course_edit_page(course_key):
         VF_conditions = request.form.data["VF_conditions"]
         course = Course(name,department,description,lecturerName,VF_conditions)
         db = current_app.config["db"]
-        db.update_course(course_key,course)
+        db.update_course(course_key,course,username)
         return redirect(url_for("course_page",course_key=course_key))
 
 def user_page():
+    username=session["username"]
     coursesVF=[]
     db = current_app.config["db"]
-    courses=db.get_courses()
+    courses=db.get_courses(username)
     for course_key,course in courses:
         check=True
         result=0
-        midterm=db.get_midterm(course_key)
+        midterm=db.get_midterm(course_key,username)
         if midterm.is_important==True:
             for i in range(midterm.number_of_midterm):
                     result=result+midterm.midterm_weight*midterm.midterm_score[i]/100
             if(result<30):
                 check=False
         result=0
-        homework=db.get_homework(course_key)
+        homework=db.get_homework(course_key,username)
         if homework.is_important==True:
             for i in range(homework.number_of_homework):
                     result=result+homework.homework_weight*homework.homework_score[i]/100
             if(result<30):
                 check=False
         result=0
-        project=db.get_project(course_key)
+        project=db.get_project(course_key,username)
         if project.is_important==True:
             for i in range(project.number_of_project):
                     result=result+project.project_weight*project.project_score[i]/100
@@ -158,8 +168,9 @@ def guide_page():
     return render_template("guide.html")
 
 def conditionAdding_page(course_key):
+    username=session["username"]
     db = current_app.config["db"]
-    course=db.get_course(course_key)
+    course=db.get_course(course_key,username)
     if request.method == "GET":
         return render_template("VFadd.html",course=course)
     else:
@@ -200,17 +211,18 @@ def conditionAdding_page(course_key):
         attendance=Attendance(upper_limit_percent,is_important,course_key)
 
 
-        db.add_midterm(midterm)
-        db.add_homework(homework)
-        db.add_project(project)
-        db.add_attendance(attendance)
+        db.add_midterm(midterm,username)
+        db.add_homework(homework,username)
+        db.add_project(project,username)
+        db.add_attendance(attendance,username)
         Cond_=Cond(course_key,course_key,course_key,course_key)
-        vf_condition_key=db.add_Vfconditions(Cond_)
+        vf_condition_key=db.add_Vfconditions(Cond_,username)
         return redirect(url_for("conditions_page",course_key=course_key))
 
 def conditionEditing_page(course_key):
+    username=session["username"]
     db = current_app.config["db"]
-    course=db.get_course(course_key)
+    course=db.get_course(course_key,username)
     if request.method == "GET":
         return render_template("VFadd.html",course=course)
     else:
@@ -251,21 +263,22 @@ def conditionEditing_page(course_key):
         attendance=Attendance(upper_limit_percent,is_important,course_key)
 
 
-        db.update_midterm(course_key,midterm)
-        db.update_homework(course_key,homework)
-        db.update_project(course_key,project)
-        db.update_attendances(course_key,attendance)
+        db.update_midterm(course_key,midterm,username)
+        db.update_homework(course_key,homework,username)
+        db.update_project(course_key,project,username)
+        db.update_attendances(course_key,attendance,username)
         Cond_=Cond(course_key,course_key,course_key,course_key)
-        db.update_Vfconditions(course_key,Cond_)
+        db.update_Vfconditions(course_key,Cond_,username)
         return redirect(url_for("course_page",course_key=course_key))
 
 def conditions_page(course_key):
+    username=session["username"]
     db = current_app.config["db"]
-    course=db.get_course(course_key)
-    midterm=db.get_midterm(course_key)
-    homework=db.get_homework(course_key)
-    project=db.get_project(course_key)
-    attendance=db.get_attendance(course_key)
+    course=db.get_course(course_key,username)
+    midterm=db.get_midterm(course_key,username)
+    homework=db.get_homework(course_key,username)
+    project=db.get_project(course_key,username)
+    attendance=db.get_attendance(course_key,username)
 
 
     midterm_score=[]
@@ -276,7 +289,7 @@ def conditions_page(course_key):
             midterm.midterm_score[0] = request.form["Midterm1"]
             if midterm.number_of_midterm>1:
                 midterm.midterm_score[1] = request.form["Midterm2"]
-            db.update_midterm(course_key,midterm)
+            db.update_midterm(course_key,midterm,username)
 
         if homework.is_important:
             homework.homework_score[0] = request.form["Homework1"]
@@ -286,13 +299,13 @@ def conditions_page(course_key):
                     homework.homework_score[2] = request.form["Homework3"]
                     if homework.number_of_homework>3:
                         homework.homework_score[3] = request.form["Homework4"]
-            db.update_homework(course_key,homework)
+            db.update_homework(course_key,homework,username)
 
         if project.is_important:
             project.project_score[0]= request.form["Project1"]
             if project.number_of_project>1:
                 project.project_score[1]= request.form["Project2"]
-            db.update_project(course_key,project)
+            db.update_project(course_key,project,username)
 
         if attendance.is_important:
             attendance.attendance[0]=int(request.form["week1"])
@@ -309,7 +322,7 @@ def conditions_page(course_key):
             attendance.attendance[11]=request.form["week12"]
             attendance.attendance[12]=request.form["week13"]
             attendance.attendance[13]=request.form["week14"]
-            db.update_attendances(course_key,attendance)
+            db.update_attendances(course_key,attendance,username)
 
         return render_template("VFcond.html",midterm=midterm,homework=homework,project=project,attendance=attendance,course=course)
 
