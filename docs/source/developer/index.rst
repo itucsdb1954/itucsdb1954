@@ -4,9 +4,11 @@ Developer Guide
 Database Design
 ---------------
 
-**explain the database design of your project**
+**database design of our project**
 
-**include the E/R diagram(s)**
+.. figure:: images/db_design.png
+   :scale: 70 %
+   :alt: map to buried treasure
 
 Code
 ----
