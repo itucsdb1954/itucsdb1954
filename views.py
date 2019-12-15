@@ -204,7 +204,60 @@ def conditionAdding_page(course_key):
         db.add_homework(homework)
         db.add_project(project)
         db.add_attendance(attendance)
+        Cond_=Cond(course_key,course_key,course_key,course_key)
+        vf_condition_key=db.add_Vfconditions(course_key,Cond_)
         return redirect(url_for("conditions_page",course_key=course_key))
+
+def conditionEditing_page(course_key):
+    db = current_app.config["db"]
+    course=db.get_course(course_key)
+    if request.method == "GET":
+        return render_template("VFadd.html",course=course)
+    else:
+
+        Number_of_Midterm = request.form["Number_of_Midterm"]
+        weighted_of_Midterm = request.form["weighted_of_Midterm"]
+        if weighted_of_Midterm=="0":
+            is_important=False
+        else:
+            is_important=True
+
+        midterm=Midterm(Number_of_Midterm,weighted_of_Midterm,is_important,course_key)
+
+        Number_of_Homework = request.form["Number_of_Homework"]
+        weighted_of_Homework = request.form["weighted_of_Homework"]
+        if weighted_of_Homework=="0":
+            is_important=False
+        else:
+            is_important=True
+
+        homework=Homework(Number_of_Homework,weighted_of_Homework,is_important,course_key)
+
+        Number_of_Project = request.form["Number_of_Project"]
+        weighted_of_Project = request.form["weighted_of_Project"]
+        if weighted_of_Project=="0":
+            is_important=False
+        else:
+            is_important=True
+        project=Project(Number_of_Project,weighted_of_Project,is_important,course_key)
+
+        attendance = request.form["attendance"]
+        upper_limit_percent = request.form["upper_limit_percent"]
+        if attendance=="1":
+            is_important=True
+        else:
+            is_important=False
+
+        attendance=Attendance(upper_limit_percent,is_important,course_key)
+
+
+        db.update_midterm(course_key,midterm)
+        db.update_homework(course_key,homework)
+        db.update_project(course_key,project)
+        db.update_attendances(course_key,attendance)
+        Cond_=Cond(course_key,course_key,course_key,course_key)
+        db.update_Vfconditions(course_key,Cond_)
+        return redirect(url_for("course_page",course_key=course_key))
 
 def conditions_page(course_key):
     db = current_app.config["db"]
@@ -213,8 +266,8 @@ def conditions_page(course_key):
     homework=db.get_homework(course_key)
     project=db.get_project(course_key)
     attendance=db.get_attendance(course_key)
-    Cond_=Cond(attendance,midterm,homework,project)
-    vfconditions_key=db.add_Vfconditions(Cond_)
+
+
     midterm_score=[]
     if request.method == "GET":
         return render_template("VFcond.html",midterm=midterm,homework=homework,project=project,attendance=attendance,course=course)
