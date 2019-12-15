@@ -4,12 +4,15 @@ Developer Guide
 Database Design
 ---------------
 
+   
 **database design of our project**
 
 .. figure:: images/db_design.png
    :scale: 70 %
    :alt: map to buried treasure
-
+   
+   -Entity Distribution
+   
 Code
 ----
 
@@ -28,6 +31,3 @@ Code
 
    member1
    member2
-   member3
-   member4
-   member5
