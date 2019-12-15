@@ -10,15 +10,6 @@ Parts Implemented by Alper Meriç
   
 On this page you can see VForNOT's logo and login form. You can login with your username and password. If you are not a registered user, click "Not Register Yet?" You can go to the registration page by clicking on the link.
 
-2.Register Page
----------------
-
-.. figure:: pictures/register.png
-      :scale: 70 %
-      :alt: map to buried treasure
-      
-If you are not a registered user, you can register by entering your name, user name, e-mail address and password.
-
 3.NavBar
 --------
 
@@ -34,6 +25,15 @@ If you are not a registered user, you can register by entering your name, user n
 *List courses page*
 *User page*
 *Log out page*
+
+5.Course's List
+---------------
+
+.. figure:: pictures/course-list.png
+   :scale: 70 %
+   :alt: map to buried treasure
+   
+You can see the list of all courses you have added. You can delete what you want by using the Checkbox next door. You can reach the courses with VF requirements by clicking the "SEE" button in the table.
 
 6.Course's Page
 ---------------
