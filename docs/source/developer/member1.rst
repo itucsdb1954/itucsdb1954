@@ -273,24 +273,24 @@ to database is :
 
 REGISTER PAGE
 -------------
-Program store the user's login data  into database by using "users" table.  
+* Program store the user's login data  into database by using "users" table.  
 Signing up done by a function given below:
 .. code-block:: python
 
 	def register_page():
-    db = current_app.config["db"]
-    form = RegistrationForm()
-    if request.method=="GET":
-        return render_template("register.html")
-    else:
-        name=request.form["Name"]
-        Username=request.form["Username"]
-        email=request.form["Email Address"]
-        #password=sha256_crypt.encrypt((str(request.form["Password"])))
-        password=request.form["Password"]
-        user=User(Username,password)
-        user.email=email
-        user.name=name
-        db.add_user(user)
-    return redirect(url_for("home_page"))
+    		db = current_app.config["db"]
+    		form = RegistrationForm()
+    		if request.method=="GET":
+        		return render_template("register.html")
+    		else:
+        		name=request.form["Name"]
+			Username=request.form["Username"]
+			email=request.form["Email Address"]
+			#password=sha256_crypt.encrypt((str(request.form["Password"])))
+			password=request.form["Password"]
+			user=User(Username,password)
+			user.email=email
+			user.name=name
+			db.add_user(user)
+  		return redirect(url_for("home_page"))
 	
