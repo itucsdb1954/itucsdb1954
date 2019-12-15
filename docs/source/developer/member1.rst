@@ -3,7 +3,7 @@ Parts Implemented by AHMET ÖZDEMİR
 
 users Table
 -----------
-	"users Table" holds the information of users such as username,password,mail(content of users table below).We get the 
+*"users Table" holds the information of users such as username,password,mail(content of users table below).We get the 
 	information from register page and save it to database.We are using this table to access different combinations of courses.
 
 .. code-block:: python
@@ -20,7 +20,7 @@ users Table
 		"""
 		]
 	
-There is a USER class to use in database operations
+*There is a USER class to use in database operations
 
 .. code-block:: python
 	class User(UserMixin):
@@ -47,7 +47,7 @@ There is a USER class to use in database operations
 			user.is_admin = user.username in current_app.config["ADMIN_USERS"]
 		return user	
 	
-There is functions to access and manipulate users table at the database.For example adding a user object 
+*There is functions to access and manipulate users table at the database.For example adding a user object 
 	to database is :
 
 
@@ -61,7 +61,7 @@ There is functions to access and manipulate users table at the database.For exam
             user_key = cursor.lastrowid
         return user_key
 
-Deleting user from database:
+*Deleting user from database:
 
 .. code-block:: python
     def delete_user(self,user_key):
@@ -71,7 +71,7 @@ Deleting user from database:
             cursor.execute(query,user_key)
             connection.commit()
 
-Getting information of a user from "username" attribute:
+*Getting information of a user from "username" attribute:
 
 .. code-block:: python
     def get_user(self,Username):
