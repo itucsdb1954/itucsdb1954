@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS attendances(
     attendance_hour12 INTEGER DEFAULT(0),
     attendance_hour13 INTEGER DEFAULT(0),
     attendance_hour14 INTEGER DEFAULT(0),
-    is_important BOOLEAN
+    is_important BOOLEAN,
     username VARCHAR(50) NOT NULL
 );
 """
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS homeworks(
     homework_score2 INTEGER DEFAULT(0),
     homework_score3 INTEGER DEFAULT(0),
     homework_score4 INTEGER DEFAULT(0),
-    is_important BOOLEAN
+    is_important BOOLEAN,
     username VARCHAR(50) NOT NULL
 );
 """
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS midterms(
     midterm_weight INTEGER CHECK(midterm_weight<100 AND midterm_weight>=0),
     midterm_score1 INTEGER DEFAULT(0),
     midterm_score2 INTEGER DEFAULT(0),
-    is_important BOOLEAN
+    is_important BOOLEAN,
     username VARCHAR(50) NOT NULL
 );
 """
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS projects(
     project_weight INTEGER CHECK(project_weight<100 AND project_weight>=0)  ,
     project_score1 INTEGER DEFAULT(0),
     project_score2 INTEGER DEFAULT(0),
-    is_important BOOLEAN
+    is_important BOOLEAN,
     username VARCHAR(50) NOT NULL
 );
 """
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS vf_conditions(
     attendance INTEGER,
     midterm INTEGER,
     homework INTEGER,
-    project INTEGER
+    project INTEGER,
     username VARCHAR(50) NOT NULL
 );
 """
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS courses(
     course_name VARCHAR(100) ,
     course_description VARCHAR(100) ,
     lecturer_name VARCHAR(100) ,
-    vf_condition INTEGER
+    vf_condition INTEGER,
     username VARCHAR(50) NOT NULL
 );
 """
