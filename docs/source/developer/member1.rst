@@ -116,7 +116,8 @@ is below:
 		attendance_hour12 INTEGER DEFAULT(0),
 		attendance_hour13 INTEGER DEFAULT(0),
 		attendance_hour14 INTEGER DEFAULT(0),
-		is_important BOOLEAN
+		is_important BOOLEAN,
+		username VARCHAR(50) NOT NULL
 	);
 	"""
 * There is a "Attendance" class to use in database operations :
@@ -136,11 +137,11 @@ to database is :
 
 .. code-block:: python
 
-	 def add_attendance(self,Attendance):
+	def add_attendance(self,Attendance,username):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
-            query = "INSERT INTO attendances(upper_limit_percent,attendance_hour1,attendance_hour2,attendance_hour3,attendance_hour4,attendance_hour5,attendance_hour6,attendance_hour7,attendance_hour8,attendance_hour9,attendance_hour10,attendance_hour11,attendance_hour12,attendance_hour13,attendance_hour14,is_important) VALUES (%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s)"
-            cursor.execute(query, (Attendance.upper_limit_percent, Attendance.attendance[0], Attendance.attendance[1], Attendance.attendance[2], Attendance.attendance[3], Attendance.attendance[4], Attendance.attendance[5], Attendance.attendance[6], Attendance.attendance[7], Attendance.attendance[8], Attendance.attendance[9], Attendance.attendance[10], Attendance.attendance[11], Attendance.attendance[12], Attendance.attendance[13],Attendance.is_important))
+            query = "INSERT INTO attendances(upper_limit_percent,attendance_hour1,attendance_hour2,attendance_hour3,attendance_hour4,attendance_hour5,attendance_hour6,attendance_hour7,attendance_hour8,attendance_hour9,attendance_hour10,attendance_hour11,attendance_hour12,attendance_hour13,attendance_hour14,is_important,username) VALUES (%s, %s, %s, %s, %s,%s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s,%s)"
+            cursor.execute(query, (Attendance.upper_limit_percent, Attendance.attendance[0], Attendance.attendance[1], Attendance.attendance[2], Attendance.attendance[3], Attendance.attendance[4], Attendance.attendance[5], Attendance.attendance[6], Attendance.attendance[7], Attendance.attendance[8], Attendance.attendance[9], Attendance.attendance[10], Attendance.attendance[11], Attendance.attendance[12], Attendance.attendance[13],Attendance.is_important,username))
             connection.commit()
             attendance_key = cursor.lastrowid
         return attendance_key
@@ -148,21 +149,21 @@ to database is :
 * Deleting attendance from database:
 .. code-block:: python
 
-    def delete_attendance(self,attendance_key):
+    def delete_attendance(self,attendance_key,usernam):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
-            query = "DELETE FROM attendances WHERE (ID = %s)"
-            cursor.execute(query, (attendance_key,))
+            query = "DELETE FROM attendances WHERE (ID = %s AND username=%s)"
+            cursor.execute(query, (attendance_key,username))
             connection.commit()
 			
 * Getting attendance by using key:
 .. code-block:: python
 
-    def get_attendance(self,attendance_key):
+    def get_attendance(self,attendance_key,username):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
-            query = "SELECT upper_limit_percent,attendance_hour1,attendance_hour2,attendance_hour3,attendance_hour4,attendance_hour5,attendance_hour6,attendance_hour7,attendance_hour8,attendance_hour9,attendance_hour10,attendance_hour11,attendance_hour12,attendance_hour13,attendance_hour14,is_important FROM attendances WHERE (id = %s)"
-            cursor.execute(query, (attendance_key,))
+            query = "SELECT upper_limit_percent,attendance_hour1,attendance_hour2,attendance_hour3,attendance_hour4,attendance_hour5,attendance_hour6,attendance_hour7,attendance_hour8,attendance_hour9,attendance_hour10,attendance_hour11,attendance_hour12,attendance_hour13,attendance_hour14,is_important FROM attendances WHERE (id = %s AND username=%s)"
+            cursor.execute(query, (attendance_key,username))
             upper_limit_percent,attendance_hour1,attendance_hour2,attendance_hour3,attendance_hour4,attendance_hour5,attendance_hour6,attendance_hour7,attendance_hour8,attendance_hour9,attendance_hour10,attendance_hour11,attendance_hour12,attendance_hour13,attendance_hour14,is_important = cursor.fetchone()
             attendance_ = Attendance(upper_limit_percent,is_important,attendance_key)
             attendance_.attendance[0]=attendance_hour1
@@ -184,11 +185,11 @@ to database is :
 * Updating attendance at database by using key :
 .. code-block:: python
     
-    def update_attendances(self,attendance_key,Attendance):
+     def update_attendances(self,attendance_key,Attendance,username):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
-            query = "UPDATE attendances SET upper_limit_percent = %s, attendance_hour1 = %s, attendance_hour2 = %s,attendance_hour3 = %s,attendance_hour4 = %s,attendance_hour5 = %s,attendance_hour6 = %s,attendance_hour7 = %s,attendance_hour8 = %s,attendance_hour9 = %s,attendance_hour10 = %s,attendance_hour11 = %s,attendance_hour12 = %s,attendance_hour13 = %s,attendance_hour14 = %s,is_important = %s WHERE (ID = %s)"
-            cursor.execute(query, (Attendance.upper_limit_percent,Attendance.attendance[0],Attendance.attendance[1],Attendance.attendance[2],Attendance.attendance[3],Attendance.attendance[4],Attendance.attendance[5],Attendance.attendance[6],Attendance.attendance[7],Attendance.attendance[8],Attendance.attendance[9],Attendance.attendance[10],Attendance.attendance[11],Attendance.attendance[12],Attendance.attendance[13],Attendance.is_important, attendance_key))
+            query = "UPDATE attendances SET upper_limit_percent = %s, attendance_hour1 = %s, attendance_hour2 = %s,attendance_hour3 = %s,attendance_hour4 = %s,attendance_hour5 = %s,attendance_hour6 = %s,attendance_hour7 = %s,attendance_hour8 = %s,attendance_hour9 = %s,attendance_hour10 = %s,attendance_hour11 = %s,attendance_hour12 = %s,attendance_hour13 = %s,attendance_hour14 = %s,is_important = %s WHERE (ID = %s AND username=%s)"
+            cursor.execute(query, (Attendance.upper_limit_percent,Attendance.attendance[0],Attendance.attendance[1],Attendance.attendance[2],Attendance.attendance[3],Attendance.attendance[4],Attendance.attendance[5],Attendance.attendance[6],Attendance.attendance[7],Attendance.attendance[8],Attendance.attendance[9],Attendance.attendance[10],Attendance.attendance[11],Attendance.attendance[12],Attendance.attendance[13],Attendance.is_important, attendance_key,username))
             connection.commit()
         return attendance_key
 
@@ -205,7 +206,8 @@ projects Table
     project_weight INTEGER CHECK(project_weight<100 AND project_weight>=0)  ,
     project_score1 INTEGER DEFAULT(0),
     project_score2 INTEGER DEFAULT(0),
-    is_important BOOLEAN
+    is_important BOOLEAN,
+    username VARCHAR(50) NOT NULL
 	);
 	"""
 	]
@@ -226,11 +228,11 @@ projects Table
 to database is :
 .. code-block:: python
 
-	def add_project(self,project):
+	def add_project(self,project,username):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
-            query = "INSERT INTO projects(number_of_project,project_weight,project_score1,project_score2,is_important) VALUES (%s, %s, %s, %s, %s)"
-            cursor.execute(query, (project.number_of_project, project.project_weight, project.project_score[0], project.project_score[1], project.is_important))
+            query = "INSERT INTO projects(number_of_project,project_weight,project_score1,project_score2,is_important,username) VALUES (%s, %s, %s, %s, %s,%s)"
+            cursor.execute(query, (project.number_of_project, project.project_weight, project.project_score[0], project.project_score[1], project.is_important,username))
             connection.commit()
             project_key = cursor.lastrowid
         return project_key
@@ -238,21 +240,21 @@ to database is :
 * Deleting project from database by using key:
 .. code-block:: python
 
-	def delete_project(self,project_key):
+	def delete_project(self,project_key,username):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
-            query = "DELETE FROM projects WHERE (ID = %s)"
-            cursor.execute(query, (project_key,))
+            query = "DELETE FROM projects WHERE (ID = %s AND username=%s)"
+            cursor.execute(query, (project_key,username))
             connection.commit()
 			
 * Getting project from database by using key:
 .. code-block:: python
 
-	def get_project(self,project_key):
+	def get_project(self,project_key,username):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
-            query = "SELECT number_of_project,project_weight,project_score1,project_score2,is_important FROM projects WHERE (id = %s)"
-            cursor.execute(query, (project_key,))
+            query = "SELECT number_of_project,project_weight,project_score1,project_score2,is_important FROM projects WHERE (id = %s AND username=%s)"
+            cursor.execute(query, (project_key,username))
             number_of_project,project_weight,project_score1,project_score2,is_important = cursor.fetchone()
             project_ = Project(number_of_project,project_weight,is_important,project_key)
             project_.project_score[0]=project_score1
@@ -262,11 +264,11 @@ to database is :
 * Updating project at database by using key :
 .. code-block:: python
 	
-	 def update_project(self,project_key,Project):
+	 def update_project(self,project_key,Project,username):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
-            query = "UPDATE projects SET number_of_project = %s, project_weight = %s, project_score1 = %s, project_score2 = %s,is_important = %s WHERE (ID = %s)"
-            cursor.execute(query, (Project.number_of_project,Project.project_weight,Project.project_score[0],Project.project_score[1],Project.is_important, project_key))
+            query = "UPDATE projects SET number_of_project = %s, project_weight = %s, project_score1 = %s, project_score2 = %s,is_important = %s WHERE (ID = %s AND username=%s)"
+            cursor.execute(query, (Project.number_of_project,Project.project_weight,Project.project_score[0],Project.project_score[1],Project.is_important, project_key,username))
             connection.commit()
         return project_key
 
