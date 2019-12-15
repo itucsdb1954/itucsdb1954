@@ -273,8 +273,7 @@ to database is :
 
 REGISTER PAGE
 -------------
-* Program store the user's login data  into database by using "users" table.  
-Signing up done by a function given below:
+* Program store the user's login data  into database by using "users" table.Signing up done by a function given below:
 .. code-block:: python
 
 	def register_page():
