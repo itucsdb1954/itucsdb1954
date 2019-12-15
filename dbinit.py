@@ -5,10 +5,10 @@ import psycopg2 as dbapi2
 
 
 INIT_STATEMENTS = [
-     """
-    CREATE TABLE IF NOT EXISTS attendances(
-    id SERIAL PRIMARY KEY ,
-    upper_limit_percent INTEGER ,
+     """ 
+CREATE TABLE IF NOT EXISTS attendances(
+    id SERIAL PRIMARY KEY,
+    upper_limit_percent INTEGER CHECK(upper_limit_percent<100 AND upper_limit_percent>0),
     attendance_hour1 INTEGER DEFAULT(0),
     attendance_hour2 INTEGER DEFAULT(0),
     attendance_hour3 INTEGER DEFAULT(0),
@@ -23,70 +23,126 @@ INIT_STATEMENTS = [
     attendance_hour12 INTEGER DEFAULT(0),
     attendance_hour13 INTEGER DEFAULT(0),
     attendance_hour14 INTEGER DEFAULT(0),
-    is_important BOOLEAN
+    is_important INTEGER
 );
-""",
+"""
+,
 """
 CREATE TABLE IF NOT EXISTS homeworks(
-    id SERIAL PRIMARY KEY ,
+    id SERIAL PRIMARY KEY,
     number_of_homework INTEGER ,
-    homework_weight INTEGER ,
+    homework_weight INTEGER CHECK(homework_weight<100 AND homework_weight>0),
     homework_score1 INTEGER DEFAULT(0),
     homework_score2 INTEGER DEFAULT(0),
     homework_score3 INTEGER DEFAULT(0),
     homework_score4 INTEGER DEFAULT(0),
-    is_important BOOLEAN
+    is_important INTEGER
 );
-""",
+"""
+,
 """
 CREATE TABLE IF NOT EXISTS midterms(
-    id SERIAL PRIMARY KEY ,
+    id SERIAL PRIMARY KEY,
     number_of_midterm INTEGER ,
-    midterm_weight INTEGER ,
+    midterm_weight INTEGER CHECK(midterm_weight<100 AND midterm_weight>0),
     midterm_score1 INTEGER DEFAULT(0),
     midterm_score2 INTEGER DEFAULT(0),
-    is_important BOOLEAN
+    is_important INTEGER
 );
-""",
+"""
+,
 """
 CREATE TABLE IF NOT EXISTS projects(
-    id SERIAL PRIMARY KEY ,
+    id SERIAL PRIMARY KEY,
     number_of_project INTEGER ,
-    project_weight INTEGER ,
+    project_weight INTEGER CHECK(project_weight<100 AND project_weight>0)  ,
     project_score1 INTEGER DEFAULT(0),
     project_score2 INTEGER DEFAULT(0),
-    is_important BOOLEAN
+    is_important INTEGER
 );
-""",
+"""
+,
 """
 CREATE TABLE IF NOT EXISTS vf_conditions(
-    id SERIAL PRIMARY KEY ,
-    attendance INTEGER REFERENCES attendances,
-    midterm INTEGER REFERENCES midterms,
-    homework INTEGER REFERENCES homeworks,
-    project INTEGER REFERENCES projects
+    id SERIAL PRIMARY KEY,
+    attendance INTEGER,
+    midterm INTEGER,
+    homework INTEGER,
+    project INTEGER
 );
-""",
+"""
+,
 """
 CREATE TABLE IF NOT EXISTS courses(
     id SERIAL PRIMARY KEY,
-    department VARCHAR(50) NOT NULL ,
-    course_name VARCHAR(100) NOT NULL ,
+    department VARCHAR(50),
+    course_name VARCHAR(100) ,
     course_description VARCHAR(100) ,
     lecturer_name VARCHAR(100) ,
-    VF_condition INTEGER,
-    vf_conditions_id INTEGER REFERENCES vf_conditions
+    vf_condition INTEGER
 );
-""",
+"""
+,
+"""
+CREATE TABLE IF NOT EXISTS user_course(
+    user_course_id INTEGER,
+    course_no INTEGER,
+    PRIMARY KEY(user_course_id,course_no)
+);
+"""
+,
 """
 CREATE TABLE IF NOT EXISTS users(
-    id SERIAL PRIMARY KEY ,
-    username VARCHAR(50) NOT NULL ,
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
     full_name VARCHAR(100) NOT NULL ,
     mail VARCHAR(100) ,
-    pass VARCHAR(50) NOT NULL ,
-    course INTEGER REFERENCES courses(id)
+    pass VARCHAR(50) NOT NULL
 );
+"""
+,
+"""
+ALTER TABLE attendances ADD CONSTRAINT num1 FOREIGN KEY(id) REFERENCES courses(id);
+"""
+,
+"""
+ALTER TABLE homeworks ADD CONSTRAINT num2 FOREIGN KEY(id) REFERENCES courses(id);
+"""
+,
+"""
+ALTER TABLE midterms ADD CONSTRAINT num3 FOREIGN KEY(id) REFERENCES courses(id);
+"""
+,
+"""
+ALTER TABLE projects ADD CONSTRAINT num4 FOREIGN KEY(id) REFERENCES courses(id);
+"""
+,
+"""
+ALTER TABLE vf_conditions ADD CONSTRAINT num5 FOREIGN KEY(id) REFERENCES courses(id);
+"""
+,
+"""
+ALTER TABLE vf_conditions ADD CONSTRAINT num6 FOREIGN KEY(attendance) REFERENCES attendances(id);
+"""
+,
+"""
+ALTER TABLE vf_conditions ADD CONSTRAINT num7 FOREIGN KEY(midterm) REFERENCES midterms(id);
+"""
+,
+"""
+ALTER TABLE vf_conditions ADD CONSTRAINT num8 FOREIGN KEY(homework) REFERENCES homeworks(id);
+"""
+,
+"""
+ALTER TABLE vf_conditions ADD CONSTRAINT num9 FOREIGN KEY(project) REFERENCES projects(id);
+"""
+,
+"""
+ALTER TABLE user_course ADD CONSTRAINT num10 FOREIGN KEY(user_course_id) REFERENCES  users(id);
+"""
+,
+"""
+ALTER TABLE user_course ADD CONSTRAINT num11 FOREIGN KEY(course_no) REFERENCES courses(id);
 """
 ]
 
