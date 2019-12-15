@@ -151,16 +151,16 @@
             <table>
               <tr>
                 <th>RESULT: </th>
-                {%if midterm.number_of_midterm ==1 or homework.number_of_homework==1 or project.number_of_project==1%}
+                {%if midterm.number_of_midterm>0 or homework.number_of_homework>0 or project.number_of_project>0%}
                 <th>1</th>
                 {%endif%}
-                {%if midterm.number_of_midterm ==2 or homework.number_of_homework==2 or project.number_of_project==2%}
+                {%if midterm.number_of_midterm >1 or homework.number_of_homework>1 or project.number_of_project>1%}
                 <th>2</th>
                 {%endif%}
-                {%if midterm.number_of_midterm ==3 or homework.number_of_homework==3 or project.number_of_project==2%}
+                {%if midterm.number_of_midterm >2 or homework.number_of_homework>2 or project.number_of_project>2%}
                 <th>3</th>
                 {%endif%}
-                {%if midterm.number_of_midterm ==4 or homework.number_of_homework==4 or project.number_of_project==2%}
+                {%if midterm.number_of_midterm >3 or homework.number_of_homework>3 or project.number_of_project>3%}
                 <th>4</th>
                 {%endif%}
               </tr>
