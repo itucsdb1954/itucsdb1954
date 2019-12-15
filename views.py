@@ -198,16 +198,12 @@ def conditionAdding_page(course_key):
             is_important=False
 
         attendance=Attendance(upper_limit_percent,is_important,course_key)
-        midterm_key=db.add_midterm(midterm)
-        midterm_key+=1
-        homework_key=db.add_homework(homework)
-        homework_key+=1
-        project_key=db.add_project(project)
-        project_key+=1
-        attendance_key=db.add_attendance(attendance)
-        attendance_key+=1
-        Cond_=Cond(attendance_key,midterm_key,homework_key,project_key)
-        vfconditions_key=db.add_Vfconditions(Cond_)
+
+
+        db.add_midterm(midterm)
+        db.add_homework(homework)
+        db.add_project(project)
+        db.add_attendance(attendance)
         return redirect(url_for("conditions_page",course_key=course_key))
 
 def conditions_page(course_key):
@@ -217,6 +213,8 @@ def conditions_page(course_key):
     homework=db.get_homework(course_key)
     project=db.get_project(course_key)
     attendance=db.get_attendance(course_key)
+    Cond_=Cond(attendance,midterm,homework,project)
+    vfconditions_key=db.add_Vfconditions(Cond_)
     midterm_score=[]
     if request.method == "GET":
         return render_template("VFcond.html",midterm=midterm,homework=homework,project=project,attendance=attendance,course=course)
