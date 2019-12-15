@@ -4,7 +4,7 @@ Parts Implemented by AHMET ÖZDEMİR
 users Table
 -----------
 * "users Table" holds the information of users such as username,password,mail(content of users table below).We get the 
-	information from register page and save it to database.We are using this table to access different combinations of courses.
+information from register page and save it to database.We are using this table to access different combinations of courses.
 
 .. code-block:: python
 
@@ -48,7 +48,7 @@ users Table
 		return user	
 	
 * There is functions to access and manipulate users table at the database.For example adding a user object 
-	to database is :
+to database is :
 
 
 .. code-block:: python
