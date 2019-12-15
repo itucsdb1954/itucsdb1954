@@ -20,7 +20,7 @@ users Table
 		"""
 		]
 	
-\* There is a USER class to use in database operations
+* There is a USER class to use in database operations
 
 .. code-block:: python
 	class User(UserMixin):
@@ -61,7 +61,7 @@ users Table
             user_key = cursor.lastrowid
         return user_key
 
-\* Deleting user from database:
+* Deleting user from database:
 
 .. code-block:: python
     def delete_user(self,user_key):
@@ -71,7 +71,7 @@ users Table
             cursor.execute(query,user_key)
             connection.commit()
 
-*Getting information of a user from "username" attribute:
+* Getting information of a user from "username" attribute:
 
 .. code-block:: python
     def get_user(self,Username):
