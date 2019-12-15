@@ -122,22 +122,6 @@ ALTER TABLE vf_conditions ADD CONSTRAINT num5 FOREIGN KEY(id) REFERENCES courses
 """
 ,
 """
-ALTER TABLE vf_conditions ADD CONSTRAINT num6 FOREIGN KEY(attendance) REFERENCES attendances(id);
-"""
-,
-"""
-ALTER TABLE vf_conditions ADD CONSTRAINT num7 FOREIGN KEY(midterm) REFERENCES midterms(id);
-"""
-,
-"""
-ALTER TABLE vf_conditions ADD CONSTRAINT num8 FOREIGN KEY(homework) REFERENCES homeworks(id);
-"""
-,
-"""
-ALTER TABLE vf_conditions ADD CONSTRAINT num9 FOREIGN KEY(project) REFERENCES projects(id);
-"""
-,
-"""
 ALTER TABLE user_course ADD CONSTRAINT num10 FOREIGN KEY(user_course_id) REFERENCES  users(id);
 """
 ,
