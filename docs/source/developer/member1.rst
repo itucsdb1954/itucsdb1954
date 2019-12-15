@@ -131,7 +131,7 @@ is below:
         self.id=course_key
 		
 
-* There is functions to access and manipulate users table at the database.For example adding a attendance object 
+* There is functions to access and manipulate "attendances" table at the database.For example adding a Attendance object 
 to database is :
 
 .. code-block:: python
@@ -191,3 +191,81 @@ to database is :
             cursor.execute(query, (Attendance.upper_limit_percent,Attendance.attendance[0],Attendance.attendance[1],Attendance.attendance[2],Attendance.attendance[3],Attendance.attendance[4],Attendance.attendance[5],Attendance.attendance[6],Attendance.attendance[7],Attendance.attendance[8],Attendance.attendance[9],Attendance.attendance[10],Attendance.attendance[11],Attendance.attendance[12],Attendance.attendance[13],Attendance.is_important, attendance_key))
             connection.commit()
         return attendance_key
+
+projects Table
+--------------
+* "projects" Table holds the project notes in the database.It's id references "vf_conditions" table.Content of table is below:
+.. code-block:: python
+
+	INIT_STATEMENTS = [
+		"""
+	CREATE TABLE IF NOT EXISTS projects(
+	id SERIAL PRIMARY KEY,
+    number_of_project INTEGER ,
+    project_weight INTEGER CHECK(project_weight<100 AND project_weight>=0)  ,
+    project_score1 INTEGER DEFAULT(0),
+    project_score2 INTEGER DEFAULT(0),
+    is_important BOOLEAN
+	);
+	"""
+	]
+
+		
+* There is a "Project" class to use at database operations:
+.. code-block:: python
+
+	class Project:
+		def __init__(self,number_of_project,project_weight,is_important,course_key):
+			self.number_of_project=number_of_project
+			self.project_weight=project_weight
+			self.project_score=[0,0]
+			self.is_important=is_important
+			self.id=course_key
+
+* There is functions to access and manipulate "projects" table at the database.For example adding a Project object 
+to database is :
+.. code-block:: python
+
+	def add_project(self,project):
+        with dbapi2.connect(self.dbfile) as connection:
+            cursor = connection.cursor()
+            query = "INSERT INTO projects(number_of_project,project_weight,project_score1,project_score2,is_important) VALUES (%s, %s, %s, %s, %s)"
+            cursor.execute(query, (project.number_of_project, project.project_weight, project.project_score[0], project.project_score[1], project.is_important))
+            connection.commit()
+            project_key = cursor.lastrowid
+        return project_key
+
+* Deleting project from database by using key:
+.. code-block:: python
+
+	def delete_project(self,project_key):
+        with dbapi2.connect(self.dbfile) as connection:
+            cursor = connection.cursor()
+            query = "DELETE FROM projects WHERE (ID = %s)"
+            cursor.execute(query, (project_key,))
+            connection.commit()
+			
+* Getting project from database by using key:
+.. code-block:: python
+
+	def get_project(self,project_key):
+        with dbapi2.connect(self.dbfile) as connection:
+            cursor = connection.cursor()
+            query = "SELECT number_of_project,project_weight,project_score1,project_score2,is_important FROM projects WHERE (id = %s)"
+            cursor.execute(query, (project_key,))
+            number_of_project,project_weight,project_score1,project_score2,is_important = cursor.fetchone()
+            project_ = Project(number_of_project,project_weight,is_important,project_key)
+            project_.project_score[0]=project_score1
+            project_.project_score[1]=project_score2
+        return project_
+	
+* Updating project at database by using key :
+.. code-block:: python
+	
+	 def update_project(self,project_key,Project):
+        with dbapi2.connect(self.dbfile) as connection:
+            cursor = connection.cursor()
+            query = "UPDATE projects SET number_of_project = %s, project_weight = %s, project_score1 = %s, project_score2 = %s,is_important = %s WHERE (ID = %s)"
+            cursor.execute(query, (Project.number_of_project,Project.project_weight,Project.project_score[0],Project.project_score[1],Project.is_important, project_key))
+            connection.commit()
+        return project_key
