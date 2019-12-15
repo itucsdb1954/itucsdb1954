@@ -3,8 +3,8 @@ Parts Implemented by AHMET ÖZDEMİR
 
 users Table
 -----------
-"users Table" holds the information of users such as username,password,mail(content of users table below).We get the 
-information from register page and save it to database.We are using this table to access different combinations of courses.
+	"users Table" holds the information of users such as username,password,mail(content of users table below).We get the 
+	information from register page and save it to database.We are using this table to access different combinations of courses.
 
 .. code-block:: python
 
@@ -21,6 +21,7 @@ information from register page and save it to database.We are using this table t
 		]
 	
 There is a USER class to use in database operations
+
 .. code-block:: python
 	class User(UserMixin):
 		def __init__(self, username,password):
@@ -44,10 +45,10 @@ There is a USER class to use in database operations
 		user = User(user_id, password) if password else None
 		if user is not None:
 			user.is_admin = user.username in current_app.config["ADMIN_USERS"]
-		return user
-		
+		return user	
+	
 There is functions to access and manipulate users table at the database.For example adding a user object 
-to database is :
+	to database is :
 
 
 .. code-block:: python
@@ -61,6 +62,7 @@ to database is :
         return user_key
 
 Deleting user from database:
+
 .. code-block:: python
     def delete_user(self,user_key):
         with dbapi2.connect(self.dbfile) as connection:
@@ -70,6 +72,7 @@ Deleting user from database:
             connection.commit()
 
 Getting information of a user from "username" attribute:
+
 .. code-block:: python
     def get_user(self,Username):
         with dbapi2.connect(self.dbfile) as connection:
