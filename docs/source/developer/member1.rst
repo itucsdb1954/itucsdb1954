@@ -6,14 +6,17 @@ users Table
 "users Table" holds the information of users such as username,password,mail(content of users table below).We get the 
 information from register page and save it to database.We are using this table to access different combinations of courses.
 
-.. code-block:: sql
-	CREATE TABLE IF NOT EXISTS users(
+.. code-block:: python
+	INIT_STATEMENTS = [
+		"""CREATE TABLE IF NOT EXISTS users(
 		id SERIAL PRIMARY KEY,
 		username VARCHAR(50) NOT NULL UNIQUE,
 		full_name VARCHAR(100) NOT NULL ,
 		mail VARCHAR(100) ,
 		pass VARCHAR(50) NOT NULL
-	);
+		);"""
+	]
+	
 There is a USER class to use in database operations
 .. code-block:: python
 	class User(UserMixin):
