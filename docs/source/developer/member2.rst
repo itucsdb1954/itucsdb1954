@@ -154,7 +154,7 @@ to database is :
             homework_.homework_score[3]= homework_score4
         return homework_
 		
-* Updating course at database by using key :
+* Updating homework at database by using key :
 .. code-block:: python
 
 	def update_homework(self,homework_key,homework):
