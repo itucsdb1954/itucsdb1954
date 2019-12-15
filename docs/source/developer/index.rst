@@ -11,7 +11,7 @@ Database Design
    :scale: 70 %
    :alt: map to buried treasure
    
-   * Entity Distribution
+* Entity Distribution
    * Red:AHMET ÖZDEMİR
    * Blue:ALPER MERİÇ
    * ORANGE:Together
