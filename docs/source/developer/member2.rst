@@ -29,6 +29,7 @@ courses Table
 			self.lecturerName=lecturerName
 			self.description=description
 			self.VF_conditions=VF_conditions
+
 * There is functions to access and manipulate "courses" table at the database.For example adding a Course object to database is :
 .. code-block:: python
 
@@ -40,6 +41,7 @@ courses Table
             connection.commit()
             course_key = cursor.lastrowid
         return course_key
+	
 * Deleting course from database by using key:
 .. code-block:: python
 
@@ -49,6 +51,7 @@ courses Table
             query = "DELETE FROM courses WHERE (ID = %s AND username = %s)"
             cursor.execute(query, (course_key,username,))
             connection.commit()
+
 * Getting a course from database by using key:
 .. code-block:: python
 
@@ -60,6 +63,7 @@ courses Table
             department, name, lecturerName, description, VF_conditions = cursor.fetchone()
         course_=Course(name,department,description,lecturerName,VF_conditions)
         return course_
+
 * Getting all courses from database:
 .. code-block:: python
 
@@ -73,6 +77,7 @@ courses Table
                 course=Course(name, department,description,lecturerName,VF_conditions)
                 courses.append((course_key, course) )
         return courses
+	
 * Updating course at database by using key :
 .. code-block:: python
 
@@ -165,7 +170,7 @@ homeworks Table
 * Updating homework at database by using key :
 .. code-block:: python
 
-	 def update_homework(self,homework_key,homework,username):
+	def update_homework(self,homework_key,homework,username):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
             query = "UPDATE homeworks SET number_of_homework = %s, homework_weight = %s, homework_score1 = %s, homework_score2 = %s, homework_score3 = %s, homework_score4 = %s, is_important = %s WHERE (ID = %s AND username=%s)"
@@ -191,7 +196,8 @@ midterms Table
 			username VARCHAR(50) NOT NULL
 		);
 		"""
-	]
+		]
+	
 * There is a "Midterm" class to use at database operations:
 .. code-block:: python
 
