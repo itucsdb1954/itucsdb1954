@@ -320,7 +320,7 @@ class Database:
     def update_Vfconditions(self,vfconditions_key,Cond):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
-            query = "UPDATE vf_conditions SET attendance = %s, midterm = %s,homework = %s,project = %s, WHERE (ID = %s)"
-            cursor.execute(query, (Cond.attendance,Cond.midterm,Cond.homework,Cond.project,vfconditions_key))
+            query = "UPDATE vf_conditions SET attendance = %s, midterm = %s,homework = %s,project = %s WHERE (ID = %s)"
+            cursor.execute(query, (Cond.attendance_key,Cond.midterm_key,Cond.homework_key,Cond.project_key,vfconditions_key))
             connection.commit()
         return vfconditions_key

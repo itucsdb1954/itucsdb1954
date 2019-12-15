@@ -205,7 +205,7 @@ def conditionAdding_page(course_key):
         db.add_project(project)
         db.add_attendance(attendance)
         Cond_=Cond(course_key,course_key,course_key,course_key)
-        vf_condition_key=db.add_Vfconditions(course_key,Cond_)
+        vf_condition_key=db.add_Vfconditions(Cond_)
         return redirect(url_for("conditions_page",course_key=course_key))
 
 def conditionEditing_page(course_key):
