@@ -68,7 +68,7 @@ def courses_page():
     db = Database("postgres://eqxokbcjiseyei:3bc64a91ec58aab73ba937f8652296acf5ab9b2671aba9deb9420dfbe25e5cf6@ec2-46-137-188-105.eu-west-1.compute.amazonaws.com:5432/d1f2968dk53lod")
     if request.method =="GET":
         courses=db.get_courses(username)
-        return render_template("coursespage.html", courses=courses)
+        return render_template("coursespage.html", courses=courses,username=username)
     else:
         form_course_keys=request.form.getlist("course_keys")
         for form_course_key in form_course_keys:
@@ -83,14 +83,14 @@ def course_page(course_key):
     username=session["username"]
     db = current_app.config["db"]
     course=db.get_course(course_key,username)
-    return render_template("coursepage.html", course=course)
+    return render_template("coursepage.html", course=course,username=username)
 
 
 def course_add_page():
-
+    username=session["username"]
     if request.method == "GET":
         values={"name":"","department":"","description":"","lecturerName":"","VF_conditions":""}
-        return render_template("course_add.html",values=values)
+        return render_template("course_add.html",values=values,username=username)
     else:
         valid=validate_course_form(request.form)
         if not valid:
@@ -102,7 +102,6 @@ def course_add_page():
         form_VF_conditions = request.form["VF_conditions"]
         course = Course(form_name,form_department,form_description,form_lecturerName,form_VF_conditions)
         db = current_app.config["db"]
-        username=session["username"]
         course_key = db.add_course(course,username)
         return redirect(url_for("courses_page"))
 
@@ -116,11 +115,11 @@ def course_edit_page(course_key):
         if course is None:
             abort(404)
         values={"name":course.name,"department":course.department,"description":course.description,"lecturerName":course.lecturerName,"VF_conditions":course.VF_conditions}
-        return render_template("course_edit.html",values=values)
+        return render_template("course_edit.html",values=values,username=username)
     else:
         valid=validate_course_form(request.form)
         if not valid:
-            return render_template("course_edit.html",values=request.form)
+            return render_template("course_edit.html",values=request.form,username=username)
         name = request.form.data["name"]
         department = request.form.data["department"]
         description = request.form.data["description"]
@@ -162,17 +161,18 @@ def user_page():
         if(check==False):
             coursesVF.append((course_key, course) )
 
-    return render_template("userpage.html",courses=coursesVF)
+    return render_template("userpage.html",courses=coursesVF,username=username)
 
 def guide_page():
-    return render_template("guide.html")
+    username=session["username"]
+    return render_template("guide.html",username=username)
 
 def conditionAdding_page(course_key):
     username=session["username"]
     db = current_app.config["db"]
     course=db.get_course(course_key,username)
     if request.method == "GET":
-        return render_template("VFadd.html",course=course)
+        return render_template("VFadd.html",course=course,username=username)
     else:
 
         Number_of_Midterm = request.form["Number_of_Midterm"]
@@ -224,7 +224,7 @@ def conditionEditing_page(course_key):
     db = current_app.config["db"]
     course=db.get_course(course_key,username)
     if request.method == "GET":
-        return render_template("VFadd.html",course=course)
+        return render_template("VFadd.html",course=course,username=username)
     else:
 
         Number_of_Midterm = request.form["Number_of_Midterm"]
@@ -283,7 +283,7 @@ def conditions_page(course_key):
 
     midterm_score=[]
     if request.method == "GET":
-        return render_template("VFcond.html",midterm=midterm,homework=homework,project=project,attendance=attendance,course=course)
+        return render_template("VFcond.html",midterm=midterm,homework=homework,project=project,attendance=attendance,course=course,username=username)
     else:
         if midterm.is_important:
             midterm.midterm_score[0] = request.form["Midterm1"]
@@ -324,7 +324,7 @@ def conditions_page(course_key):
             attendance.attendance[13]=request.form["week14"]
             db.update_attendances(course_key,attendance,username)
 
-        return render_template("VFcond.html",midterm=midterm,homework=homework,project=project,attendance=attendance,course=course)
+        return render_template("VFcond.html",midterm=midterm,homework=homework,project=project,attendance=attendance,course=course,username=username)
 
 
 
