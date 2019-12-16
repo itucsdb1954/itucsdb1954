@@ -242,7 +242,7 @@ class Database:
             attendance_key = cursor.lastrowid
         return attendance_key
 
-    def delete_attendance(self,attendance_key,usernam):
+    def delete_attendance(self,attendance_key,username):
         with dbapi2.connect(self.dbfile) as connection:
             cursor = connection.cursor()
             query = "DELETE FROM attendances WHERE (ID = %s AND username=%s)"
