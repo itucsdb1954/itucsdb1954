@@ -56,7 +56,9 @@ def home_page():
                 else:
                     flash("Invalid credentials.")
                     return render_template("homepage.html",day=day_name,form=form)
-            flash("Invalid credentials.")
+            else:    
+                flash("Invalid credentials.")
+                return render_template("homepage.html",day=day_name,form=form)
         return render_template("homepage.html",day=day_name,form=form)
 
 
