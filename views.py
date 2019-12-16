@@ -162,7 +162,7 @@ def user_page():
         attendance=db.get_attendance(course_key,username)
         if attendance.is_important==True:
             for i in range(14):
-                     result=result+attendance.attendance[i+1]
+                     result=result+attendance.attendance[i]
             if(result>(attendance.upper_limit_percent*14/100)):
                 check=False
         if(check==False):
