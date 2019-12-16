@@ -158,6 +158,13 @@ def user_page():
                     result=result+project.project_weight*project.project_score[i]/100
             if(result<30):
                 check=False
+        result=0        
+        attendance=db.get_attendance(course_key,username)
+        if attendance.is_important==True:
+            for i in range(14):
+                     result=result+attendance_.attendance[i+1]
+            if(result>attendance.upper_limit_percent*14/100)
+                check=False
         if(check==False):
             coursesVF.append((course_key, course) )
 
