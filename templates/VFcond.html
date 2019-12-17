@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 {% block title %}VF Conditions{% endblock %}
 {% block content %}
+      <div class="box">
       <h1 class="title">VF Condition</h1>
-
+      <div class="box">
       <table class="table">
         <tr>
           <th>        </th>
@@ -39,9 +40,11 @@
         </tr>
         {%endif%}
       </table>
+      </div>    
       <br>
       <br>
       {%if course.VF_conditions == 1 %}
+      <div class="box">      
       <form action="" method="post" name="attendance_form">
         {%if attendance.is_important %}
         <div class="attendance">
@@ -142,10 +145,12 @@
             </div>
           </div>
         </div>
+            </div>    
         {%endif%}
           <br>
           <br>
           {%if midterm.is_important or homework.is_important or project.is_important%}
+          <div class="box">  
           <div class="Midterm">
             <h1>Points Table</h1>
             <table>
@@ -208,8 +213,10 @@
               </div>
             </div>
           </div>
+                </div>      
           {%endif%}
         </form>
 
       {%endif%}
+</div>
 {% endblock %}
