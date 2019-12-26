@@ -1,0 +1,799 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parts Implemented by ALPER MERİÇ &mdash; ITUCSDB1954  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Parts Implemented by AHMET ÖZDEMİR" href="member1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ITUCSDB1954
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#database-design">Database Design</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#code">Code</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="member1.html">Parts Implemented by AHMET ÖZDEMİR</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Parts Implemented by ALPER MERİÇ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#courses-table">courses Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#homeworks-table">homeworks Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#midterms-table">midterms Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#course-adding-page">COURSE ADDING PAGE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#courses-list-page">COURSES LIST PAGE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#course-edit-page">COURSE EDIT PAGE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-page">USER PAGE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#condition-adding-page">CONDITION ADDING PAGE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#condition-editing-page">CONDITION EDITING PAGE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conditions-list-page">CONDITIONS LIST PAGE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ITUCSDB1954</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Developer Guide</a> &raquo;</li>
+        
+      <li>Parts Implemented by ALPER MERİÇ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developer/member2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parts-implemented-by-alper-meric">
+<h1>Parts Implemented by ALPER MERİÇ<a class="headerlink" href="#parts-implemented-by-alper-meric" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="courses-table">
+<h2>courses Table<a class="headerlink" href="#courses-table" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>“courses” Table holds the course information in the database.It’s id references “user_course” table.Content of table is below:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">INIT_STATEMENTS</span> <span class="o">=</span> <span class="p">[</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">CREATE TABLE IF NOT EXISTS courses(</span>
+<span class="sd">        id SERIAL PRIMARY KEY,</span>
+<span class="sd">        department VARCHAR(50),</span>
+<span class="sd">        course_name VARCHAR(100) ,</span>
+<span class="sd">        course_description VARCHAR(100) ,</span>
+<span class="sd">        lecturer_name VARCHAR(100) ,</span>
+<span class="sd">        vf_condition INTEGER,</span>
+<span class="sd">        username VARCHAR(50) NOT NULL</span>
+<span class="sd">);</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>There is a “Course” class to use at database operations:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Course</span><span class="p">:</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">department</span><span class="p">,</span><span class="n">description</span><span class="p">,</span><span class="n">lecturerName</span><span class="p">,</span><span class="n">VF_conditions</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">department</span><span class="o">=</span><span class="n">department</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lecturerName</span><span class="o">=</span><span class="n">lecturerName</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="o">=</span><span class="n">description</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">VF_conditions</span><span class="o">=</span><span class="n">VF_conditions</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>There is functions to access and manipulate “courses” table at the database.For example adding a Course object to database is :</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">course</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO courses (department,course_name, lecturer_name,course_description,VF_condition,username) VALUES (</span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">course</span><span class="o">.</span><span class="n">department</span><span class="p">,</span> <span class="n">course</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">course</span><span class="o">.</span><span class="n">lecturerName</span><span class="p">,</span> <span class="n">course</span><span class="o">.</span><span class="n">description</span><span class="p">,</span><span class="n">course</span><span class="o">.</span><span class="n">VF_conditions</span><span class="p">,</span><span class="n">username</span><span class="p">))</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">course_key</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">lastrowid</span>
+<span class="k">return</span> <span class="n">course_key</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Deleting course from database by using key:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+   <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+   <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM courses WHERE (ID = </span><span class="si">%s</span><span class="s2"> AND username = </span><span class="si">%s</span><span class="s2">)&quot;</span>
+   <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">,))</span>
+   <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Getting a course from database by using key:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT department, course_name, lecturer_name,course_description, VF_condition FROM courses WHERE (id = </span><span class="si">%s</span><span class="s2"> AND username = </span><span class="si">%s</span><span class="s2">)&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">))</span>
+    <span class="n">department</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">lecturerName</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">VF_conditions</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+<span class="n">course_</span><span class="o">=</span><span class="n">Course</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">department</span><span class="p">,</span><span class="n">description</span><span class="p">,</span><span class="n">lecturerName</span><span class="p">,</span><span class="n">VF_conditions</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">course_</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Getting all courses from database:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_courses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="n">courses</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT id,department,course_name,lecturer_name,course_description,VF_condition FROM courses WHERE(username=</span><span class="si">%s</span><span class="s2">) ORDER BY ID&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,(</span><span class="n">username</span><span class="p">,))</span>
+    <span class="k">for</span> <span class="n">course_key</span><span class="p">,</span> <span class="n">department</span><span class="p">,</span><span class="n">name</span><span class="p">,</span> <span class="n">lecturerName</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">VF_conditions</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+        <span class="n">course</span><span class="o">=</span><span class="n">Course</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">department</span><span class="p">,</span><span class="n">description</span><span class="p">,</span><span class="n">lecturerName</span><span class="p">,</span><span class="n">VF_conditions</span><span class="p">)</span>
+        <span class="n">courses</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">course_key</span><span class="p">,</span> <span class="n">course</span><span class="p">)</span> <span class="p">)</span>
+<span class="k">return</span> <span class="n">courses</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Updating course at database by using key :</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">course_key</span><span class="p">,</span><span class="n">Course</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;UPDATE courses SET department = </span><span class="si">%s</span><span class="s2">, course_name = </span><span class="si">%s</span><span class="s2">, lecturer_name = </span><span class="si">%s</span><span class="s2">, course_description = </span><span class="si">%s</span><span class="s2">, VF_condition = </span><span class="si">%s</span><span class="s2"> WHERE (ID = </span><span class="si">%s</span><span class="s2"> AND username=</span><span class="si">%s</span><span class="s2">)&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">Course</span><span class="o">.</span><span class="n">department</span><span class="p">,</span><span class="n">Course</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">Course</span><span class="o">.</span><span class="n">lecturerName</span><span class="p">,</span><span class="n">Course</span><span class="o">.</span><span class="n">description</span><span class="p">,</span><span class="n">Course</span><span class="o">.</span><span class="n">VF_conditions</span><span class="p">,</span> <span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">))</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="k">return</span> <span class="n">course_key</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="homeworks-table">
+<h2>homeworks Table<a class="headerlink" href="#homeworks-table" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>“homeworks” Table stores homework points at database.It’s “id” references “vf_condition” table.Content of table is below:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">INIT_STATEMENTS</span> <span class="o">=</span> <span class="p">[</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        CREATE TABLE IF NOT EXISTS homeworks(</span>
+<span class="sd">                id SERIAL PRIMARY KEY,</span>
+<span class="sd">                number_of_homework INTEGER ,</span>
+<span class="sd">                homework_weight INTEGER CHECK(homework_weight&lt;100 AND homework_weight&gt;=0),</span>
+<span class="sd">                homework_score1 INTEGER DEFAULT(0),</span>
+<span class="sd">                homework_score2 INTEGER DEFAULT(0),</span>
+<span class="sd">                homework_score3 INTEGER DEFAULT(0),</span>
+<span class="sd">                homework_score4 INTEGER DEFAULT(0),</span>
+<span class="sd">                is_important BOOLEAN,</span>
+<span class="sd">                username VARCHAR(50) NOT NULL</span>
+<span class="sd">        );</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>There is a “Homework” class to use at database operations:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Homework</span><span class="p">:</span>
+<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">number_of_homework</span><span class="p">,</span><span class="n">homework_weight</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">course_key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number_of_homework</span><span class="o">=</span><span class="n">number_of_homework</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homework_weight</span><span class="o">=</span><span class="n">homework_weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">homework_score</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_important</span><span class="o">=</span><span class="n">is_important</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="o">=</span><span class="n">course_key</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>There is functions to access and manipulate “homeworks” table at the database.For example adding a Homework object to database is :</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_homework</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">Homework</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO homeworks(number_of_homework, homework_weight, homework_score1,homework_score2,homework_score3,homework_score4,is_important,username) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">)&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">Homework</span><span class="o">.</span><span class="n">number_of_homework</span><span class="p">,</span> <span class="n">Homework</span><span class="o">.</span><span class="n">homework_weight</span><span class="p">,</span> <span class="n">Homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">Homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">Homework</span><span class="o">.</span><span class="n">is_important</span><span class="p">,</span><span class="n">username</span><span class="p">))</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">homework_key</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">lastrowid</span>
+<span class="k">return</span> <span class="n">homework_key</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Deleting homework from database by using key:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete_homework</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">homework_key</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM homeworks WHERE (ID = </span><span class="si">%s</span><span class="s2"> AND username=</span><span class="si">%s</span><span class="s2">)&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">homework_key</span><span class="p">,</span><span class="n">username</span><span class="p">))</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Getting a homework from database by using key:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_homework</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">homework_key</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT number_of_homework, homework_weight, homework_score1,homework_score2,homework_score3,homework_score4,is_important FROM homeworks WHERE (id = </span><span class="si">%s</span><span class="s2"> AND username=</span><span class="si">%s</span><span class="s2">)&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">homework_key</span><span class="p">,</span><span class="n">username</span><span class="p">))</span>
+    <span class="n">number_of_homework</span><span class="p">,</span> <span class="n">homework_weight</span><span class="p">,</span> <span class="n">homework_score1</span><span class="p">,</span><span class="n">homework_score2</span><span class="p">,</span><span class="n">homework_score3</span><span class="p">,</span><span class="n">homework_score4</span><span class="p">,</span><span class="n">is_important</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="n">homework_</span> <span class="o">=</span> <span class="n">Homework</span><span class="p">(</span><span class="n">number_of_homework</span><span class="p">,</span> <span class="n">homework_weight</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">homework_key</span><span class="p">)</span>
+    <span class="n">homework_</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span> <span class="n">homework_score1</span>
+    <span class="n">homework_</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span> <span class="n">homework_score2</span>
+    <span class="n">homework_</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span> <span class="n">homework_score3</span>
+    <span class="n">homework_</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span> <span class="n">homework_score4</span>
+<span class="k">return</span> <span class="n">homework_</span> <span class="n">homework_score1</span><span class="p">,</span><span class="n">homework_score2</span><span class="p">,</span><span class="n">homework_score3</span><span class="p">,</span><span class="n">homework_score4</span><span class="p">,</span><span class="n">is_important</span> <span class="n">FROM</span> <span class="n">homeworks</span> <span class="n">WHERE</span> <span class="p">(</span><span class="nb">id</span> <span class="o">=</span> <span class="o">%</span><span class="n">s</span><span class="p">)</span><span class="s2">&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">homework_key</span><span class="p">,))</span>
+    <span class="n">number_of_homework</span><span class="p">,</span> <span class="n">homework_weight</span><span class="p">,</span> <span class="n">homework_score1</span><span class="p">,</span><span class="n">homework_score2</span><span class="p">,</span><span class="n">homework_score3</span><span class="p">,</span><span class="n">homework_score4</span><span class="p">,</span><span class="n">is_important</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="n">homework_</span> <span class="o">=</span> <span class="n">Homework</span><span class="p">(</span><span class="n">number_of_homework</span><span class="p">,</span> <span class="n">homework_weight</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">homework_key</span><span class="p">)</span>
+    <span class="n">homework_</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span> <span class="n">homework_score1</span>
+    <span class="n">homework_</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span> <span class="n">homework_score2</span>
+    <span class="n">homework_</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span> <span class="n">homework_score3</span>
+    <span class="n">homework_</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span> <span class="n">homework_score4</span>
+<span class="k">return</span> <span class="n">homework_</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Updating homework at database by using key :</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_homework</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">homework_key</span><span class="p">,</span><span class="n">homework</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;UPDATE homeworks SET number_of_homework = </span><span class="si">%s</span><span class="s2">, homework_weight = </span><span class="si">%s</span><span class="s2">, homework_score1 = </span><span class="si">%s</span><span class="s2">, homework_score2 = </span><span class="si">%s</span><span class="s2">, homework_score3 = </span><span class="si">%s</span><span class="s2">, homework_score4 = </span><span class="si">%s</span><span class="s2">, is_important = </span><span class="si">%s</span><span class="s2"> WHERE (ID = </span><span class="si">%s</span><span class="s2"> AND username=</span><span class="si">%s</span><span class="s2">)&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">homework</span><span class="o">.</span><span class="n">number_of_homework</span><span class="p">,</span><span class="n">homework</span><span class="o">.</span><span class="n">homework_weight</span><span class="p">,</span><span class="n">homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">homework</span><span class="o">.</span><span class="n">is_important</span><span class="p">,</span> <span class="n">homework_key</span><span class="p">,</span><span class="n">username</span><span class="p">))</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="k">return</span> <span class="n">homework_key</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="midterms-table">
+<h2>midterms Table<a class="headerlink" href="#midterms-table" title="Permalink to this headline">¶</a></h2>
+<p>“midterms” table stores midterms points at database.It’s “id” references “vf_condition” table.Content of table given below:
+.. code-block:: python</p>
+<blockquote>
+<div><dl>
+<dt>INIT_STATEMENTS = [</dt><dd><p>“””
+CREATE TABLE IF NOT EXISTS midterms(</p>
+<blockquote>
+<div><p>id SERIAL PRIMARY KEY,
+number_of_midterm INTEGER ,
+midterm_weight INTEGER CHECK(midterm_weight&lt;100 AND midterm_weight&gt;=0),
+midterm_score1 INTEGER DEFAULT(0),
+midterm_score2 INTEGER DEFAULT(0),
+is_important BOOLEAN,
+username VARCHAR(50) NOT NULL</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+</div></blockquote>
+<ul class="simple">
+<li><p>There is a “Midterm” class to use at database operations:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Midterm</span><span class="p">:</span>
+<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">number_of_midterm</span><span class="p">,</span><span class="n">midterm_weight</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">course_key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number_of_midterm</span><span class="o">=</span><span class="n">number_of_midterm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">midterm_weight</span><span class="o">=</span><span class="n">midterm_weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">midterm_score</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_important</span><span class="o">=</span><span class="n">is_important</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="o">=</span><span class="n">course_key</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>There is functions to access and manipulate “midterms” table at the database.For example adding a Midterm object to database is :</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="k">def</span> <span class="nf">add_midterm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">Midterm</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO midterms(number_of_midterm, midterm_weight, midterm_score1,midterm_score2,is_important,username) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">)&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">Midterm</span><span class="o">.</span><span class="n">number_of_midterm</span><span class="p">,</span> <span class="n">Midterm</span><span class="o">.</span><span class="n">midterm_weight</span><span class="p">,</span> <span class="n">Midterm</span><span class="o">.</span><span class="n">midterm_score</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Midterm</span><span class="o">.</span><span class="n">midterm_score</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Midterm</span><span class="o">.</span><span class="n">is_important</span><span class="p">,</span><span class="n">username</span><span class="p">))</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">midterm_key</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">lastrowid</span>
+<span class="k">return</span> <span class="n">midterm_key</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Deleting midterm from database by using key:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete_midterm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">midterm_key</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;DELETE FROM midterms WHERE (ID = </span><span class="si">%s</span><span class="s2"> AND username=</span><span class="si">%s</span><span class="s2">)&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">midterm_key</span><span class="p">,</span><span class="n">username</span><span class="p">))</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Getting a midterm from database by using key:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_midterm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">midterm_key</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT number_of_midterm, midterm_weight, midterm_score1,midterm_score2,is_important FROM midterms WHERE (id = </span><span class="si">%s</span><span class="s2"> AND username=</span><span class="si">%s</span><span class="s2">)&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">midterm_key</span><span class="p">,</span><span class="n">username</span><span class="p">))</span>
+    <span class="n">number_of_midterm</span><span class="p">,</span> <span class="n">midterm_weight</span><span class="p">,</span> <span class="n">midterm_score1</span><span class="p">,</span><span class="n">midterm_score2</span><span class="p">,</span><span class="n">is_important</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="n">midterm_</span> <span class="o">=</span> <span class="n">Midterm</span><span class="p">(</span><span class="n">number_of_midterm</span><span class="p">,</span> <span class="n">midterm_weight</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">midterm_key</span><span class="p">)</span>
+    <span class="n">midterm_</span><span class="o">.</span><span class="n">midterm_score</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">midterm_score1</span>
+    <span class="n">midterm_</span><span class="o">.</span><span class="n">midterm_score</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">midterm_score2</span>
+<span class="k">return</span> <span class="n">midterm_</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Updating midterm at database by using key :</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_midterm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">midterm_key</span><span class="p">,</span><span class="n">Midterm</span><span class="p">,</span><span class="n">username</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dbfile</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;UPDATE midterms SET number_of_midterm = </span><span class="si">%s</span><span class="s2">, midterm_weight = </span><span class="si">%s</span><span class="s2">, midterm_score1 = </span><span class="si">%s</span><span class="s2">, midterm_score2 = </span><span class="si">%s</span><span class="s2">, is_important = </span><span class="si">%s</span><span class="s2"> WHERE (id = </span><span class="si">%s</span><span class="s2"> AND username=</span><span class="si">%s</span><span class="s2">)&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">Midterm</span><span class="o">.</span><span class="n">number_of_midterm</span><span class="p">,</span><span class="n">Midterm</span><span class="o">.</span><span class="n">midterm_weight</span><span class="p">,</span><span class="n">Midterm</span><span class="o">.</span><span class="n">midterm_score</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Midterm</span><span class="o">.</span><span class="n">midterm_score</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">Midterm</span><span class="o">.</span><span class="n">is_important</span><span class="p">,</span> <span class="n">midterm_key</span><span class="p">,</span><span class="n">username</span><span class="p">))</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="k">return</span> <span class="n">midterm_key</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="course-adding-page">
+<h2>COURSE ADDING PAGE<a class="headerlink" href="#course-adding-page" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Program adds course by function given below:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">course_add_page</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+        <span class="n">values</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;department&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;lecturerName&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;VF_conditions&quot;</span><span class="p">:</span><span class="s2">&quot;&quot;</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;course_add.html&quot;</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">valid</span><span class="o">=</span><span class="n">validate_course_form</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">valid</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;course_add.html&quot;</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+        <span class="n">form_name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+        <span class="n">form_department</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span>
+        <span class="n">form_description</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span>
+        <span class="n">form_lecturerName</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;lecturerName&quot;</span><span class="p">]</span>
+        <span class="n">form_VF_conditions</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;VF_conditions&quot;</span><span class="p">]</span>
+        <span class="n">course</span> <span class="o">=</span> <span class="n">Course</span><span class="p">(</span><span class="n">form_name</span><span class="p">,</span><span class="n">form_department</span><span class="p">,</span><span class="n">form_description</span><span class="p">,</span><span class="n">form_lecturerName</span><span class="p">,</span><span class="n">form_VF_conditions</span><span class="p">)</span>
+        <span class="n">db</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;db&quot;</span><span class="p">]</span>
+        <span class="n">username</span><span class="o">=</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+        <span class="n">course_key</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">add_course</span><span class="p">(</span><span class="n">course</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;courses_page&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="courses-list-page">
+<h2>COURSES LIST PAGE<a class="headerlink" href="#courses-list-page" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Can see all courses in your user database by this function:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">courses_page</span><span class="p">():</span>
+    <span class="n">username</span><span class="o">=</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">Database</span><span class="p">(</span><span class="s2">&quot;postgres://eqxokbcjiseyei:3bc64a91ec58aab73ba937f8652296acf5ab9b2671aba9deb9420dfbe25e5cf6@ec2-46-137-188-105.eu-west-1.compute.amazonaws.com:5432/d1f2968dk53lod&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span><span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+        <span class="n">courses</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_courses</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;coursespage.html&quot;</span><span class="p">,</span> <span class="n">courses</span><span class="o">=</span><span class="n">courses</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">form_course_keys</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">getlist</span><span class="p">(</span><span class="s2">&quot;course_keys&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">form_course_key</span> <span class="ow">in</span> <span class="n">form_course_keys</span><span class="p">:</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">delete_course</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">form_course_key</span><span class="p">),</span><span class="n">username</span><span class="p">)</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">delete_midterm</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">form_course_key</span><span class="p">),</span><span class="n">username</span><span class="p">)</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">delete_project</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">form_course_key</span><span class="p">),</span><span class="n">username</span><span class="p">)</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">delete_homework</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">form_course_key</span><span class="p">),</span><span class="n">username</span><span class="p">)</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">delete_attendance</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">form_course_key</span><span class="p">),</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;courses_page&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="course-edit-page">
+<h2>COURSE EDIT PAGE<a class="headerlink" href="#course-edit-page" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Can edit courses by this function :</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">course_edit_page</span><span class="p">(</span><span class="n">course_key</span><span class="p">):</span>
+    <span class="n">username</span><span class="o">=</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+        <span class="n">db</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;db&quot;</span><span class="p">]</span>
+        <span class="n">course</span> <span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">course</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+        <span class="n">values</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="n">course</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s2">&quot;department&quot;</span><span class="p">:</span><span class="n">course</span><span class="o">.</span><span class="n">department</span><span class="p">,</span><span class="s2">&quot;description&quot;</span><span class="p">:</span><span class="n">course</span><span class="o">.</span><span class="n">description</span><span class="p">,</span><span class="s2">&quot;lecturerName&quot;</span><span class="p">:</span><span class="n">course</span><span class="o">.</span><span class="n">lecturerName</span><span class="p">,</span><span class="s2">&quot;VF_conditions&quot;</span><span class="p">:</span><span class="n">course</span><span class="o">.</span><span class="n">VF_conditions</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;course_edit.html&quot;</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">valid</span><span class="o">=</span><span class="n">validate_course_form</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">valid</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;course_edit.html&quot;</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+        <span class="n">department</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;department&quot;</span><span class="p">]</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span>
+        <span class="n">lecturerName</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;lecturerName&quot;</span><span class="p">]</span>
+        <span class="n">VF_conditions</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;VF_conditions&quot;</span><span class="p">]</span>
+        <span class="n">course</span> <span class="o">=</span> <span class="n">Course</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">department</span><span class="p">,</span><span class="n">description</span><span class="p">,</span><span class="n">lecturerName</span><span class="p">,</span><span class="n">VF_conditions</span><span class="p">)</span>
+        <span class="n">db</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;db&quot;</span><span class="p">]</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">update_course</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">course</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;course_page&quot;</span><span class="p">,</span><span class="n">course_key</span><span class="o">=</span><span class="n">course_key</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="user-page">
+<h2>USER PAGE<a class="headerlink" href="#user-page" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Can generate output if a vf condition not satisfied:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">user_page</span><span class="p">():</span>
+    <span class="n">username</span><span class="o">=</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+    <span class="n">coursesVF</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;db&quot;</span><span class="p">]</span>
+    <span class="n">courses</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_courses</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">course_key</span><span class="p">,</span><span class="n">course</span> <span class="ow">in</span> <span class="n">courses</span><span class="p">:</span>
+        <span class="n">check</span><span class="o">=</span><span class="kc">True</span>
+        <span class="n">result</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">midterm</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_midterm</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">midterm</span><span class="o">.</span><span class="n">is_important</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">midterm</span><span class="o">.</span><span class="n">number_of_midterm</span><span class="p">):</span>
+                    <span class="n">result</span><span class="o">=</span><span class="n">result</span><span class="o">+</span><span class="n">midterm</span><span class="o">.</span><span class="n">midterm_weight</span><span class="o">*</span><span class="n">midterm</span><span class="o">.</span><span class="n">midterm_score</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">&lt;</span><span class="mi">30</span><span class="p">):</span>
+                <span class="n">check</span><span class="o">=</span><span class="kc">False</span>
+        <span class="n">result</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">homework</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_homework</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">homework</span><span class="o">.</span><span class="n">is_important</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">homework</span><span class="o">.</span><span class="n">number_of_homework</span><span class="p">):</span>
+                    <span class="n">result</span><span class="o">=</span><span class="n">result</span><span class="o">+</span><span class="n">homework</span><span class="o">.</span><span class="n">homework_weight</span><span class="o">*</span><span class="n">homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">&lt;</span><span class="mi">30</span><span class="p">):</span>
+                <span class="n">check</span><span class="o">=</span><span class="kc">False</span>
+        <span class="n">result</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">project</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">project</span><span class="o">.</span><span class="n">is_important</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">number_of_project</span><span class="p">):</span>
+                    <span class="n">result</span><span class="o">=</span><span class="n">result</span><span class="o">+</span><span class="n">project</span><span class="o">.</span><span class="n">project_weight</span><span class="o">*</span><span class="n">project</span><span class="o">.</span><span class="n">project_score</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="o">&lt;</span><span class="mi">30</span><span class="p">):</span>
+                <span class="n">check</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">check</span><span class="o">==</span><span class="kc">False</span><span class="p">):</span>
+            <span class="n">coursesVF</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">course_key</span><span class="p">,</span> <span class="n">course</span><span class="p">)</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;userpage.html&quot;</span><span class="p">,</span><span class="n">courses</span><span class="o">=</span><span class="n">coursesVF</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="condition-adding-page">
+<h2>CONDITION ADDING PAGE<a class="headerlink" href="#condition-adding-page" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Adding a vf condition to a course provided by this function:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">conditionAdding_page</span><span class="p">(</span><span class="n">course_key</span><span class="p">):</span>
+    <span class="n">username</span><span class="o">=</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;db&quot;</span><span class="p">]</span>
+    <span class="n">course</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;VFadd.html&quot;</span><span class="p">,</span><span class="n">course</span><span class="o">=</span><span class="n">course</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="n">Number_of_Midterm</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Number_of_Midterm&quot;</span><span class="p">]</span>
+        <span class="n">weighted_of_Midterm</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;weighted_of_Midterm&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">weighted_of_Midterm</span><span class="o">==</span><span class="s2">&quot;0&quot;</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">True</span>
+
+        <span class="n">midterm</span><span class="o">=</span><span class="n">Midterm</span><span class="p">(</span><span class="n">Number_of_Midterm</span><span class="p">,</span><span class="n">weighted_of_Midterm</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">course_key</span><span class="p">)</span>
+
+        <span class="n">Number_of_Homework</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Number_of_Homework&quot;</span><span class="p">]</span>
+        <span class="n">weighted_of_Homework</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;weighted_of_Homework&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">weighted_of_Homework</span><span class="o">==</span><span class="s2">&quot;0&quot;</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">True</span>
+
+        <span class="n">homework</span><span class="o">=</span><span class="n">Homework</span><span class="p">(</span><span class="n">Number_of_Homework</span><span class="p">,</span><span class="n">weighted_of_Homework</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">course_key</span><span class="p">)</span>
+
+        <span class="n">Number_of_Project</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Number_of_Project&quot;</span><span class="p">]</span>
+        <span class="n">weighted_of_Project</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;weighted_of_Project&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">weighted_of_Project</span><span class="o">==</span><span class="s2">&quot;0&quot;</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">True</span>
+        <span class="n">project</span><span class="o">=</span><span class="n">Project</span><span class="p">(</span><span class="n">Number_of_Project</span><span class="p">,</span><span class="n">weighted_of_Project</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">course_key</span><span class="p">)</span>
+
+        <span class="n">attendance</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;attendance&quot;</span><span class="p">]</span>
+        <span class="n">upper_limit_percent</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;upper_limit_percent&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">attendance</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">False</span>
+
+        <span class="n">attendance</span><span class="o">=</span><span class="n">Attendance</span><span class="p">(</span><span class="n">upper_limit_percent</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">course_key</span><span class="p">)</span>
+
+
+        <span class="n">db</span><span class="o">.</span><span class="n">add_midterm</span><span class="p">(</span><span class="n">midterm</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">add_homework</span><span class="p">(</span><span class="n">homework</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">add_project</span><span class="p">(</span><span class="n">project</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">add_attendance</span><span class="p">(</span><span class="n">attendance</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="n">Cond_</span><span class="o">=</span><span class="n">Cond</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">course_key</span><span class="p">,</span><span class="n">course_key</span><span class="p">,</span><span class="n">course_key</span><span class="p">)</span>
+        <span class="n">vf_condition_key</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">add_Vfconditions</span><span class="p">(</span><span class="n">Cond_</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;conditions_page&quot;</span><span class="p">,</span><span class="n">course_key</span><span class="o">=</span><span class="n">course_key</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="condition-editing-page">
+<h2>CONDITION EDITING PAGE<a class="headerlink" href="#condition-editing-page" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Conditions can be edited by this function:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">conditionEditing_page</span><span class="p">(</span><span class="n">course_key</span><span class="p">):</span>
+    <span class="n">username</span><span class="o">=</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;db&quot;</span><span class="p">]</span>
+    <span class="n">course</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;VFadd.html&quot;</span><span class="p">,</span><span class="n">course</span><span class="o">=</span><span class="n">course</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="n">Number_of_Midterm</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Number_of_Midterm&quot;</span><span class="p">]</span>
+        <span class="n">weighted_of_Midterm</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;weighted_of_Midterm&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">weighted_of_Midterm</span><span class="o">==</span><span class="s2">&quot;0&quot;</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">True</span>
+
+        <span class="n">midterm</span><span class="o">=</span><span class="n">Midterm</span><span class="p">(</span><span class="n">Number_of_Midterm</span><span class="p">,</span><span class="n">weighted_of_Midterm</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">course_key</span><span class="p">)</span>
+
+        <span class="n">Number_of_Homework</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Number_of_Homework&quot;</span><span class="p">]</span>
+        <span class="n">weighted_of_Homework</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;weighted_of_Homework&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">weighted_of_Homework</span><span class="o">==</span><span class="s2">&quot;0&quot;</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">True</span>
+
+        <span class="n">homework</span><span class="o">=</span><span class="n">Homework</span><span class="p">(</span><span class="n">Number_of_Homework</span><span class="p">,</span><span class="n">weighted_of_Homework</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">course_key</span><span class="p">)</span>
+
+        <span class="n">Number_of_Project</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Number_of_Project&quot;</span><span class="p">]</span>
+        <span class="n">weighted_of_Project</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;weighted_of_Project&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">weighted_of_Project</span><span class="o">==</span><span class="s2">&quot;0&quot;</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">True</span>
+        <span class="n">project</span><span class="o">=</span><span class="n">Project</span><span class="p">(</span><span class="n">Number_of_Project</span><span class="p">,</span><span class="n">weighted_of_Project</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">course_key</span><span class="p">)</span>
+
+        <span class="n">attendance</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;attendance&quot;</span><span class="p">]</span>
+        <span class="n">upper_limit_percent</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;upper_limit_percent&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">attendance</span><span class="o">==</span><span class="s2">&quot;1&quot;</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">is_important</span><span class="o">=</span><span class="kc">False</span>
+
+        <span class="n">attendance</span><span class="o">=</span><span class="n">Attendance</span><span class="p">(</span><span class="n">upper_limit_percent</span><span class="p">,</span><span class="n">is_important</span><span class="p">,</span><span class="n">course_key</span><span class="p">)</span>
+
+
+        <span class="n">db</span><span class="o">.</span><span class="n">update_midterm</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">midterm</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">update_homework</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">homework</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">update_project</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">project</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">update_attendances</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">attendance</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="n">Cond_</span><span class="o">=</span><span class="n">Cond</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">course_key</span><span class="p">,</span><span class="n">course_key</span><span class="p">,</span><span class="n">course_key</span><span class="p">)</span>
+        <span class="n">db</span><span class="o">.</span><span class="n">update_Vfconditions</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">Cond_</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;course_page&quot;</span><span class="p">,</span><span class="n">course_key</span><span class="o">=</span><span class="n">course_key</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conditions-list-page">
+<h2>CONDITIONS LIST PAGE<a class="headerlink" href="#conditions-list-page" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Can see vf conditions from this function:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">conditions_page</span><span class="p">(</span><span class="n">course_key</span><span class="p">):</span>
+    <span class="n">username</span><span class="o">=</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;db&quot;</span><span class="p">]</span>
+    <span class="n">course</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_course</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+    <span class="n">midterm</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_midterm</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+    <span class="n">homework</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_homework</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+    <span class="n">project</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_project</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+    <span class="n">attendance</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">get_attendance</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+
+
+    <span class="n">midterm_score</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;GET&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;VFcond.html&quot;</span><span class="p">,</span><span class="n">midterm</span><span class="o">=</span><span class="n">midterm</span><span class="p">,</span><span class="n">homework</span><span class="o">=</span><span class="n">homework</span><span class="p">,</span><span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span><span class="n">attendance</span><span class="o">=</span><span class="n">attendance</span><span class="p">,</span><span class="n">course</span><span class="o">=</span><span class="n">course</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">midterm</span><span class="o">.</span><span class="n">is_important</span><span class="p">:</span>
+            <span class="n">midterm</span><span class="o">.</span><span class="n">midterm_score</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Midterm1&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">midterm</span><span class="o">.</span><span class="n">number_of_midterm</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">midterm</span><span class="o">.</span><span class="n">midterm_score</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Midterm2&quot;</span><span class="p">]</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">update_midterm</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">midterm</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">homework</span><span class="o">.</span><span class="n">is_important</span><span class="p">:</span>
+            <span class="n">homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Homework1&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">homework</span><span class="o">.</span><span class="n">number_of_homework</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Homework2&quot;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">homework</span><span class="o">.</span><span class="n">number_of_homework</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">:</span>
+                    <span class="n">homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Homework3&quot;</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">homework</span><span class="o">.</span><span class="n">number_of_homework</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">:</span>
+                        <span class="n">homework</span><span class="o">.</span><span class="n">homework_score</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Homework4&quot;</span><span class="p">]</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">update_homework</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">homework</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">project</span><span class="o">.</span><span class="n">is_important</span><span class="p">:</span>
+            <span class="n">project</span><span class="o">.</span><span class="n">project_score</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Project1&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">project</span><span class="o">.</span><span class="n">number_of_project</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">project</span><span class="o">.</span><span class="n">project_score</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;Project2&quot;</span><span class="p">]</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">update_project</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">project</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">attendance</span><span class="o">.</span><span class="n">is_important</span><span class="p">:</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week1&quot;</span><span class="p">])</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week2&quot;</span><span class="p">]</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week3&quot;</span><span class="p">]</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week4&quot;</span><span class="p">]</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week5&quot;</span><span class="p">]</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week6&quot;</span><span class="p">]</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week7&quot;</span><span class="p">]</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week8&quot;</span><span class="p">]</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week9&quot;</span><span class="p">]</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week10&quot;</span><span class="p">]</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week11&quot;</span><span class="p">]</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week12&quot;</span><span class="p">]</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week13&quot;</span><span class="p">]</span>
+            <span class="n">attendance</span><span class="o">.</span><span class="n">attendance</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;week14&quot;</span><span class="p">]</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">update_attendances</span><span class="p">(</span><span class="n">course_key</span><span class="p">,</span><span class="n">attendance</span><span class="p">,</span><span class="n">username</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;VFcond.html&quot;</span><span class="p">,</span><span class="n">midterm</span><span class="o">=</span><span class="n">midterm</span><span class="p">,</span><span class="n">homework</span><span class="o">=</span><span class="n">homework</span><span class="p">,</span><span class="n">project</span><span class="o">=</span><span class="n">project</span><span class="p">,</span><span class="n">attendance</span><span class="o">=</span><span class="n">attendance</span><span class="p">,</span><span class="n">course</span><span class="o">=</span><span class="n">course</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="member1.html" class="btn btn-neutral float-left" title="Parts Implemented by AHMET ÖZDEMİR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, ITUCSDB1954
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
